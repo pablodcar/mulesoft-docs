@@ -1,28 +1,48 @@
 = Connector Reference Documentation
 :keywords: devkit, reference documentation
+:toc: macro
+:toc-title: Contents
+:toclevels: 3
 
-After creating your connector, documenting its functionality helps customers use your connector effectively and can help reduce customer support and training costs. 
+toc::[]
+
+== Introduction
+
+After your connector is built, documenting its functionality helps customers use your connector effectively and can help reduce customer support and training costs. 
 
 Documenting a connector consists of creating:
 
-* Javadoc reference documentation - See the sections below
-* Readme, use cases, and release notes - See "Documenting with Use Cases" in link:/anypoint-connector-devkit/v/3.7/packaging-your-connector-for-release[Packaging Your Connector for Release]
+* Javadoc reference documentation (see improved Javadoc generation workflow in <<Generating Documentation, Generating Documenation>>)
+* README, use cases, and release notes - See "Documenting with Use Cases" in link:/anypoint-connector-devkit/v/3.7/packaging-your-connector-for-release[Packaging Your Connector for Release]
 
-Anypoint Studio simplifies the work of creating reference documentation.
-
-Mule builds on link:http://en.wikipedia.org/wiki/Javadoc[Javadoc] to automate and simplify the creation of technical reference documentation for your connector, adding a custom Javadoc doclet and some DevKit-specific Java annotations. This document describes how to generate documentation and what to include.
+Mule builds on link:http://en.wikipedia.org/wiki/Javadoc[Javadoc] to automate and simplify the creation of technical reference documentation for your connector, adding a custom Javadoc doclet and some DevKit-specific Java annotations. This document describes how to generate documentation and what to include in your connector
 
 == Prerequisites
 
 This document assumes that you are familiar with Anypoint Studio and with Javadoc. It also assumes that you have already developed and tested your connectors.
+//TODO: provide links for the above
 
 == Generating Documentation
 
-Whenever you build the connector, DevKit automatically creates an HTML file that serves as a user-friendly reference for the Javadoc annotations that you have added within your code. This documentation can be previewed by right-clicking your project in the Package Explorer, then select *Anypoint Connector* > *Preview Documentation*.  
+Whenever you build the connector, DevKit automatically creates both an *HTML* file and an *Asciidoc* file that
+//TODO: Juani, still generates BOTH docs automatically using DevKit plugin?
+//TODO: provide link to asciidoc explanation and way to preview this format.
+serves as a user-friendly reference for the Javadoc annotations that you have added within your code. This documentation can be previewed by right-clicking your project in the Package Explorer, then select *Anypoint Connector* > *Preview Documentation*.
+//TODO: Juani, still possible to preview the docs in this way after connector build as described above? 
 
-This generated documentation can be found in the `target/apidocs` directory in your project. Open the file `index.html` to show the fully generated documentation.
+From the command line, use the following Maven command to generate documentation:
+
+----
+mvn clean compile -Dgenerate.apidocs
+----
+
+[IMPORTANT]
+To run this command successfully you must have DevKit 3.8 and have Java SDK 7 or higher enabled.
+
+The generated documentation can be found in the `target/apidocs` directory in your connector folder. Open the file `connectorname-apidoc.html` or the `connectorname-apidoc.adoc` to show the fully generated documentation.
 
 image:devkit_doc_screenshot.png[devkit_doc_screenshot]
+//TODO: probably all new screenshots needed.
 
 The documentation always includes the following:
 
@@ -30,9 +50,13 @@ The documentation always includes the following:
 * Reference documentation for calling connector methods directly from Java
 * A (boilerplate) guide to installing the connector in Mule
 
-As you build out your connector, review the generated documentation to ensure that the contents are sane and correct. If you find the generated documentation insufficient, you can always include more detail in the Javadoc comments in your code.
+[NOTE]
+Links placed in comments inside your code will be parsed as HTML.
+//TODO: need example of this. so no <href> tags needed?
 
-== Documenting Annotations
+As you build out your connector, perform a review of the generated documentation to ensure that the contents are sane and correct. If you find the generated documentation insufficient, you can always include more detail in the Javadoc comments in your code.
+
+== Annotations for Generating Documentation
 
 The following sections describe the annotations that can be used in Anypoint DevKit to document your connector.
 
@@ -107,12 +131,20 @@ If the method has a return type other than `void`, a Javadoc `@return` annota
      return animal + "has been placed in the barn";
  }
 ----
+=== Annotation for Custom/Non-Java Types
+
+If your connector uses custom or non-Java data types, such as those from a third party, such as BSON from MongoDB, you can generate reference material that the user can access from your connector's documentation.
+
+To do this, inside the connector class code, place the Javadoc tag `@javadoc.url`, the name of the Java package, e.g. `org.bson` and provide the URL between brackets *[ ]*. The latter URL *must* be a Javadoc URL.
+
+//TODO: show whole command and screenshot showing availability of the data type link within the connector javadoc
+
 
 === Required XML Code Samples: @sample.xml
 
 The `@sample.xml` annotation points to an XML snippet that demonstrates how to use this method in Mule's XML. This example is then featured in the generated DevKit documentation.
 
-DevKit also does sanity checks on the XML code referenced by the `@sample.xml` annotation, ensuring that the XML example parses successfully against the generated schema for your connector.
+DevKit also performs sanity checks on the XML code referenced by the `@sample.xml` annotation, ensuring that the XML example parses successfully against the generated schema for your connector.
 
 Syntax for the annotation is shown in the example below.
 
@@ -126,7 +158,7 @@ The parameters passed to `@sample.xml` are as follows:
 * `xml-location`: The relative path from `src/main/java` to the example file. The Maven archetype creates this file in your project at `doc/project-name.xml.sample`; the relative path is generally  `../../../`
 * `tag-name`: A name for the example in the `.xml.sample` file, in the format `myconnector:my-method-name` or `myconnector:myMethodName`.
 
-The examples file specified by the `@sample.xml` tag must adhere to the structure displayed in the example below.
+The examples file specified by the `@sample.xml` tag must adhere to the structure displayed in the example below, `BEGIN_INCLUDE`, the name of the module followed by a colon `:`, then the name of the operation.
 
 [source, xml, linenums]
 ----
@@ -139,7 +171,8 @@ The examples file specified by the `@sample.xml` tag must adhere to the struct
 ...
 ----
 
-Here is an example for the message processor 'myGreeting' given above.
+Here is an example code snippet for the message processor 'myGreeting' given above.
+//TODO: needs to be replaced with a different example
 
 [source, xml, linenums]
 ----
@@ -147,6 +180,8 @@ Here is an example for the message processor 'myGreeting' given above.
     <barn:put-in-barn animal="#[map-payload:animal]" />
 <!-- END_INCLUDE(barn:putInBarn) -->
 ----
+
+Devkit can find a second example that uses the same operation as long as it is tagged using the structure above.
 
 == See Also
 
