@@ -50,7 +50,7 @@ With your cursor on the @Connector class or any other @ annotation, type CTRL + 
 
 image:ConnectorHelpInfo.png[ConnectorHelpInfo]
 
-For more information on @Connector and other Anypoint Connector DevKit annotations, see the link:/anypoint-connector-devkit/v/3.7/annotation-reference[Annotation Reference].
+For more information on @Connector and other Anypoint Connector DevKit annotations, see the link:http://mulesoft.github.io/mule-devkit/[Anypoint DevKit API Reference].
 
 === Using Templates
 

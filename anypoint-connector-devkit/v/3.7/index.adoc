@@ -3,7 +3,10 @@
 
 The *MuleSoft Anypoint DevKit*, or simply *DevKit*, enables the development of MuleSoft Anypoint Connectors.
 
-A MuleSoft connector is an extension module to the MuleSoft Anypoint Platform, with modules that ease the interconnection of third-party systems and APIs with Mule applications.
+[IMPORTANT]
+The DevKit version number does not correspond to the Mule version. All DevKit versions since DevKit 3.5 are backward-compatible with Mule versions from Mule 3.5. Hence DevKit 3.8 works correctly with Mule 3.5 onward.
+
+An Anypoint Connector is an extension module to the MuleSoft Anypoint Platform, with modules that ease the interconnection of third-party systems and APIs with Mule applications.
 
 == Development Steps
 
@@ -37,7 +40,7 @@ Features DevKit provides:
 * Examples, training, and support to simplify development startup.
 * Batch, Query Pagination, and DataSense Query Language support.
 
-DevKit is a annotations-based tool, with a wide set of available annotations to support its features. For a complete list of DevKit annotations, see the link:/anypoint-connector-devkit/v/3.7/annotation-reference[Annotation Reference].
+DevKit is a annotations-based tool, with a wide set of available annotations to support its features. For a complete list of DevKit annotations, see the link:http://mulesoft.github.io/mule-devkit/[Annotation Reference].
 
 == What is a Connector?
 
@@ -57,7 +60,7 @@ A Mule connector has two operational sides. The Mule-facing side communicates wi
 
 From the Mule-facing side, a connector consists of:
 
-* *Main Java class*. Java code that you annotate with the `@Connector` attribute. See the link:/anypoint-connector-devkit/v/3.7/annotation-reference[Annotation Reference] for information about Anypoint Connector DevKit annotations. See  link:http://en.wikipedia.org/wiki/Java_annotation[Java annotations] for information on how annotations work. 
+* *Main Java class*. Java code that you annotate with the `@Connector` attribute. See the link:http://mulesoft.github.io/mule-devkit/[Anypoint DevKit API Reference] for information about Anypoint Connector DevKit annotations. See  link:http://en.wikipedia.org/wiki/Java_annotation[Java annotations] for information on how annotations work. 
 * *Connector attributes*. Properties of the `@Connector` class that you annotate with the `@Configurable` attribute. 
 * *Methods*. Functionality that you annotate with the `@Processor` attribute.
 
@@ -222,7 +225,7 @@ DevKit supports:
 |link:/mule-user-guide/v/3.7/anypoint-connectors[Anypoint Connectors] |How to use and implement connectors - this section is in the Mule User Guide.
 |https://www.mulesoft.com/exchange#!/?types=connector&sortBy=name[Connectors] |Connectors available from MuleSoft or third party sources.
 |link:/mule-user-guide/v/3.7/datasense-enabled-connectors[DataSense-Enabled Connectors] |View which MuleSoft connectors support DataSense.
-|link:/anypoint-connector-devkit/v/3.7/annotation-reference[Annotations Reference] |Describes DevKit elements that start with an at sign(@), which you can use in your connector to identify classes and functions for Anypoint functionality.
+|link:http://mulesoft.github.io/mule-devkit/[Anypoint DevKit API Reference] |Describes DevKit elements that start with an at sign(@), which you can use in your connector to identify classes and functions for Anypoint functionality.
 |link:/anypoint-connector-devkit/v/3.7/anypoint-connector-examples[Examples] a|
 * link:/anypoint-connector-devkit/v/3.7/tutorial-barn-connector[Tutorial - Barn Connector]
 * link:/anypoint-connector-devkit/v/3.7/creating-a-connector-using-a-java-sdk[Creating a Connector Using a Java SDK]

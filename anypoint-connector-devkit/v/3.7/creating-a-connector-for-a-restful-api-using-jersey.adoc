@@ -415,7 +415,7 @@ private String accessTokenSecret;
 
 *Notes*:
 
-* The use of `@Optional` and `@Default` with `@Configurable`. For more on these annotations, see link:/anypoint-connector-devkit/v/3.7/defining-connector-attributes[Defining Connector Attributes] and link:/anypoint-connector-devkit/v/3.7/annotation-reference[Annotation Reference].
+* The use of `@Optional` and `@Default` with `@Configurable`. For more on these annotations, see link:/anypoint-connector-devkit/v/3.7/defining-connector-attributes[Defining Connector Attributes] and link:http://mulesoft.github.io/mule-devkit/[Anypoint DevKit API Reference].
 * The use of the OAuth annotations
 
 === @Connector Class @Start Method and the Client Class
