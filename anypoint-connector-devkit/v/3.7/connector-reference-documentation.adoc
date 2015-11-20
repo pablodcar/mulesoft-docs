@@ -14,7 +14,7 @@ After you build your connector, document its functionality to help customers use
 
 Connector documentation usually consists of:
 
-* Javadoc reference documentation (see improved Javadoc generation workflow in <<Generating Documentation, Generating Documentation>>)
+* Reference documentation (gereated by DevKit APIdoc generation workflow in <<Generating Documentation, Generating Documentation>>)
 * README
 * Release notes
 * User guide
@@ -31,13 +31,17 @@ This document assumes you are familiar with Anypoint Studio and Javadoc. It also
 
 The following sections describe the Java annotations that can be used to generate the documentation for your connector built using Anypoint DevKit.
 
+//TODO: insert javadoc tags that are supported into a table
+
+//TODO: explain higher level of how classes, methods and parameters are documented. Example of one each
+
 [NOTE]
 Documentation is not mandatory, however, unless you disable the Javadoc Check, errors display. To disable Javadoc Check and show errors as warnings, right-click your project, and click *Anypoint Connector* > *Disable Javadoc check*.
 
 === Required Connector Metadata: @Connector and @Author
 
 Each class annotated with `@Connector` should have a class-level Javadoc comment with a high-level overview of the extensions. This may also include the `@author` annotation.
-
+//TODO: take out all Mongodb info and use something else, so no copyright issue
 [source, java, linenums]
 ----
 /**
@@ -201,7 +205,8 @@ Devkit can find a second example that uses the same operation as long as it is t
 Documentation can be previewed by right-clicking your project in the Package Explorer, then selecting *Anypoint Connector* > *Preview Documentation*.
 
 [IMPORTANT]
-You must have *DevKit 3.8* and have *Java SDK 7 or higher* enabled to access the updated documentation features described here. Ensure the appropriate versions of DevKit and Java SDK are specified in your `pom.xml` file.
+You must have *DevKit 3.8.0* and have *JDK 7 or higher* enabled to access the updated documentation features described here. Ensure the appropriate versions of DevKit in the pom.xml and JDK on your system are used.
+//TODO check grammar
 
 When you generate documentation for your connector (*Project* > *Generate Javadoc*), DevKit automatically creates both an *HTML* file and an link:http://asciidoctor.org/docs/what-is-asciidoc/#what-is-asciidoc[AsciiDoc] file that serve as a user-friendly reference for the Java comments you have added within your code explaining connector methods and attributes.
 
@@ -225,7 +230,7 @@ The documentation always includes the following:
 //TODO: there is no install guide in the apidoc as far as I can tell. Will it be included in the final version?
 
 [NOTE]
-If you want URLs inside your Javadoc comments to be parsed as hyperlinks, wrap them in HTML tags, that is, `<a href>URL</a>`.
+If you want URLs inside your Javadoc comments to be parsed as hyperlinks, wrap them in HTML tags, that is, `<a href>URL</a>` or use Javadoc tag `@see`
 //TODO: Juani, could you confirm this is what you were explaining to me? Adjust as necessary.
 
 As you build out your connector, perform a review of the generated documentation to ensure that the contents are sane and correct. If you find the generated documentation insufficient, you can always include more detail in the Java comments in your code.
