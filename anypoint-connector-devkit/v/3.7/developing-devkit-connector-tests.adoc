@@ -64,7 +64,7 @@ image:TestScaffoldingGeneration.png[TestScaffoldingGeneration]
 . Click additional choices if you want Studio to create test data that you can use to test your connector:
 ** *Generate Functional Test Data Files*
 ** *Generate Interop Test Data Files*
-. Click *Finish*. Studio creates files that appear in Package Explorer under src/test/java.
+. Click *Finish*. Studio creates files that appear in Package Explorer under `src/test/java`.
 . Add your code to the scaffolded tests. To run your tests, see Running Generated Tests.
 
 === Example Scaffold File
@@ -149,4 +149,4 @@ Also, if a connector is *Standard*, remember to add a `muleLicenseKey.lic` file
 
 If you are developing individual unit tests while adding operations to your connector, you should go back to the development process. Build your connector project with Maven; if any of your tests fail, then your Maven build process fails. 
 
-After you complete your test suite, you can link:/anypoint-connector-devkit/v/3.7/connector-reference-documentation[complete documentation and samples] for your connector.
+After you complete your test suite, you can  link:/anypoint-connector-devkit/v/3.7/connector-reference-documentation[generate complete documentation and samples] for your connector.
