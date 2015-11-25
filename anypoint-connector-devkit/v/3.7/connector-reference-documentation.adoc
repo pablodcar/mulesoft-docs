@@ -4,7 +4,7 @@
 :toc-title: Contents
 :toclevels: 3
 
-This document describes what to include in your connector source code files to be able to generate connector documentation.
+This document describes how to write Javadoc comments in your connector code and generate readable documentation for your users.
 
 toc::[]
 
@@ -14,7 +14,7 @@ After you build your connector, document its functionality to help customers use
 
 Connector documentation usually consists of:
 
-* Reference documentation (created by DevKit APIdoc workflow; see <<Generating Documentation, Generating Documentation>>)
+* Reference documentation (created by DevKit APIdoc; see <<Generating Documentation, Generating Documentation>>)
 * README
 * Release notes
 * User guide including use cases - for examples see link:/anypoint-connector-devkit/v/3.7/packaging-your-connector-for-release#documenting-with-use-cases[Documenting with Use Cases]
@@ -25,29 +25,29 @@ Mule builds on link:http://en.wikipedia.org/wiki/Javadoc[Javadoc] to automate 
 
 This document assumes you are familiar with Anypoint Studio and Javadoc. It also assumes that you have already developed and tested your connectors.
 
-== Annotations for Generating Documentation
+== Tags for Generating Documentation
 
-The following sections describe the Java annotations that can be used to generate the documentation for your connector built using Anypoint DevKit.
+The following sections describe the Javadoc tags and syntax that can be used to generate the documentation for your connector built using Anypoint DevKit.
 
 === Supported Javadoc Tags
 
-The DevKit-supported Javadoc tags are described in examples in the below sections of this document.
+The DevKit-supported Javadoc tags are described in this table and are used in examples throughout this document.
 
 [width="100%",cols="20a,80a"]
 |===
-|`@link` | Provides an in-line link pointing to the documentation for the specified package
-|`@javadoc` | Can be used on the connector class, for example, `@javadoc.url`, followed by the fully qualified name of a third-party's Java package name and the Javadoc URL. See <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>>.
-|`@param` | Used below the description of a method. `@param` adds the parameter name, and its description to the reference material. The description should be listed on the line after you specify `@param ParamName`
-|`@return` | Adds the description of the type that the function returns to a section in the reference material entitled "Returns"
+|`@link` | Provides an in-line link pointing to the documentation for the specified package if the fully qualified name is provided, otherwise the text after link is parsed as a string.
+|`@see` | provides an in-line link to a URL.
+If you want URLs inside your Javadoc comments to be parsed as hyperlinks, you can use the Javadoc tag `@see` to create an in-line link that will parse: `{@see http://example.com}`. `{@see <a href="http://example.com">http://example.com</a>}` displays the full URL.
+|`@javadoc` | Can be used on the connector class, for example, `@javadoc.url`, followed by the name of a third-party's Java package name and the Javadoc URL. See <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>>.
+|`@param` | Used underneath the description of a method. `@param` adds the parameter name and its description to the reference material. The description should be listed on the line below ` @param ParamName`.
+|`@return` | Adds the description of the function's return type to the "Returns" section of the documentation.
 |===
 
-//TODO: Juani: if necessary, need some guidance on
-explaining higher level of how classes, methods and parameters are documented. Example of one each.
 
 [NOTE]
 Documentation is not mandatory, however, unless you disable the Javadoc Check, errors display. To disable Javadoc Check and show errors as warnings, right-click your project, and click *Anypoint Connector* > *Disable Javadoc check*.
 
-=== Required Connector Metadata: @Connector and @Author
+=== Connector Metadata: @Connector and @Author
 
 Each class annotated with `@Connector` should have a class-level Javadoc comment with a high-level overview of the extensions. This may also include the `@author` annotation.
 
@@ -66,7 +66,7 @@ public class CMISConnector implements CMISFacade {
 
 === Documenting @Configurable Attributes
 
-`@Configurable` annotations can be documented with a Javadoc comment that briefly explains the attribute.
+`@Configurable` attributes of your connector can be documented with a Javadoc comment that briefly explains the attribute.
 
 [source, java, linenums]
 ----
@@ -88,6 +88,27 @@ public class CMISConnector implements CMISFacade {
  @Configurable
  private String apiEndpoint;
 ----
+
+The `@Default` annotation puts the value between parentheses under the "Default Value" column in the row corresponding to the attribute. The default value for `host` is `localhost:27017` in this example:
+
+[source,java,linenums]
+----
+/**
+ * A list of MongoDB instances, with the format <code>host:port</code>, separated by commas.
+ *
+ * <pre>
+ * Example: 127.0.0.1:27017, 192.168.1.2:27017
+ * </pre>
+ *
+ */
+@Configurable
+    @Default("localhost:27017")
+    @FriendlyName("Servers (host:port)")
+    @Placement(group = "Connection")
+    private String host;
+----
+
+image:host-attr.png[host-attr]
 
 === Documenting @Processor Methods and Parameters
 
@@ -119,10 +140,10 @@ public String insertDocument(final String collection, @RefOnly @Default("#[paylo
     return config.getClient().insertObject(collection, document);
 }
 ----
-=== Annotation for Non-Java Data Types
+=== Linking to External Javadoc Resources
 //TODO: is this title ok, or is this annotation for native Java types too?
 
-To embed a link in your documentation to external Javadoc reference material, it is recommended to use a placeholder within your comments in the format `{@link NonJavaDataType}`. This requires that the fully qualified name of the class be specified after `@link` `{@link package.class#member label}` *or* be provided after the `@javadoc.url` tag, otherwise the link will not be created as the package for that type will not be found.
+To embed a link in your documentation to external Javadoc reference material, you may use a `@link` placeholder within your comments provided that the fully qualified name of the class be specified, for example, `{@link org.bson.Document}` *and* the reference to the external Javadoc resource after the `@javadoc.url` tag above the connector class as described in <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>>, otherwise the URL will not be created because the package for that type will not be found.
 
 //TODO: Juan, can you provide an example where the fully qualified path is given after @link, in the format {@link package.class#member label}?
 
@@ -154,13 +175,14 @@ The base URL to the reference material for an extension's data type must be crea
 * @javadoc.url com.mongodb[https://api.mongodb.org/java/3.1/];
 */
 public class MongoCloudConnector {
+...
 ----
 
-DevKit concatenates the base URL for the MongoDB Java API, and the paths to the particular package, and the specific class.
+DevKit concatenates the base URL for the MongoDB Java API, the path to the particular package, and the specific class to form a proper URL.
 
 image:apidoc-mongo-document-attr.png[apidoc-mongo-document-attr]
 
-Clicking *Document* above would direct you to the reference material for this class: `https://api.mongodb.org/java/3.1/org/bson/Document.html`.
+Clicking *Document* from the documentation shown above would direct the user to the reference material for this class: `https://api.mongodb.org/java/3.1/org/bson/Document.html`.
 
 === XML Code Samples File
 
@@ -187,7 +209,7 @@ Here is an example from the CMIS connector's `xml.sample` file:
 ----
 
 [NOTE]
-The DevKit ApiDoc can take a second valid example from the `xml.sample` file that uses the same API operation as long as the example is tagged using the same "include" tag structure above.
+The DevKit ApiDoc can generate more than one example from the `xml.sample` file for the same connector operation. Of course, the example must follow the same "include" tag structure above. As of DevKit 3.8.0, the `@sample.xml` tag is *NOT* supported.
 
 == Generating Documentation
 
@@ -207,9 +229,6 @@ mvn clean compile -Dgenerate.apidocs
 ----
 
 The generated documentation can be found in the `target/apidocs` directory in your connector folder. Open the file `connectorname-apidoc.html` to show the fully generated documentation in the browser.
-
-[NOTE]
-If you want URLs inside your Javadoc comments to be parsed as hyperlinks, you can use the Javadoc tag `@see` to create a link for you, in the form `@see com.my.package.Class#method()`.
 
 As you build out your connector, perform a review of the generated documentation to ensure that the contents are sane and correct. If you find the generated documentation insufficient, you can always include more detail in the Javadoc comments in your code.
 
