@@ -10,6 +10,13 @@ To enhance SOAP connector development, DevKit 3.8.0 comes equipped with session 
 == Introduction
 
 //TODO: The purpose of session management is...
+//you connect to a service before you perform any action on it. modify employee info would require authent then you can the operation, then you have a session, then a connect method, and connect to the service
+//session stays alive for a period of time, to reuse it you won't have to reconnect, handle reconnections when needed
+//service pov: authentication to the service. from management pov, you don't have the check the connection. when you
+// perform an operation, you are assured that when you reach the operation point, you will be already be connected. Lifecycle is covered by
+//WsdlProvider enables SOAP Connect declaring wsdlconnector (original)
+//ConnectionManagement enables three key connection methods @ + Connect Disconnect and ValidateConnection
+
 Session management allows you, the developer to:
 
 * Inject the sessionId into:
