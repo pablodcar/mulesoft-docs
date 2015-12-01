@@ -1,6 +1,7 @@
 = Extending Connector Functionality
 :keywords: devkit, extend, connector
 
+Learn how to build a connector that senses dynamic and static metadata to make application design less burdensome.
 * link:/anypoint-connector-devkit/v/3.7/adding-datasense[Adding DataSense]
 * link:/anypoint-connector-devkit/v/3.7/adding-datasense-query-language[Adding DataSense Query Language]
 * link:/anypoint-connector-devkit/v/3.7/adding-query-pagination-support[Adding Query Pagination Support]
