@@ -1,21 +1,19 @@
 = Session Management for SOAP Connect
 :keywords: soap connect, session management, wsdl, web service, soap
 
-//TODO: how does session management improve the provisioning of the web service?
-//TODO: what does this require the developer to code?
-//TODO: Why is sessionID injection useful for the person administering a web service using a SOAP connector?
-
 To enhance SOAP connector development, DevKit 3.8.0 comes equipped with session management options for SOAP Connect.
 
 == Introduction
 
-//TODO: The purpose of session management is...
-//you connect to a service before you perform any action on it. modify employee info would require authent then you can the operation, then you have a session, then a connect method, and connect to the service
+Session management offers you the ability to control how long a user session is kept alive. With the ability to manage the length of a session, the user is ensured that an operation can be completed without having to authenticate or reconnect to the service.
+
+With session management implemented, the SOAP service point of view, the client is already authenticated, the session is live, and ready to accept a SOAP connector's requested operation through the service.
+
 //session stays alive for a period of time, to reuse it you won't have to reconnect, handle reconnections when needed
 //service pov: authentication to the service. from management pov, you don't have the check the connection. when you
-// perform an operation, you are assured that when you reach the operation point, you will be already be connected. Lifecycle is covered by
+//  Lifecycle is covered by
 //WsdlProvider enables SOAP Connect declaring wsdlconnector (original)
-//ConnectionManagement enables three key connection methods @ + Connect Disconnect and ValidateConnection
+
 
 Session management allows you, the developer to:
 
@@ -29,9 +27,7 @@ Session management allows you, the developer to:
 
 == Requirements
 
-//TODO: what does person reading this need to know besides the fact they need to implement these methods?
-
-To enable session management for your connector, the `Config` class must be annotated with `@WsdlProvider` and `@ConnectionManagement`, which require implementation of the following methods:
+To enable session management for your connector, the `Config` class must be annotated with `@WsdlProvider` and `@ConnectionManagement`, which respectively require implementation of the following methods:
 
 For WSDL management:
 

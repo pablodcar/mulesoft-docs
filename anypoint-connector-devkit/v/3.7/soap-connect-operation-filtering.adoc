@@ -1,0 +1,25 @@
+= Operation Filtering
+:keywords: operation filtering, soap connect, session management
+
+For a particular `ServiceDefinition`, the developer is able to filter out (that is, hide from the connector user) some operations that are declared in the WSDL file.
+
+This filtering is necessary in order to exclude login/logout operations from the operations dropdown exposed to the app developer.
+//todo: why login/logout operations?
+
+The set of excluded operations will be bundled in the definitions that hold the operation names to be removed from the metadata key retrieval.
+
+[source,java,linenums]
+----
+@WsdlServiceRetriever
+    public ServiceDefinition getServiceDefinition() {
+           ServiceDefinition service = new DefaultServiceDefinition(
+                          "ServiceId", "tshirt", "tshirt.wsdl","TshirtService","TshirtServicePort");
+
+           service.setExclusions(Arrays.asList("login", "logout"));
+
+            // Exclusions can also be set as:
+            // service.excludeOperation(“myUnwantedOp”);
+
+            return service;
+    }
+----
