@@ -1,5 +1,5 @@
 = WSDL Operation Filtering
-:keywords: operation filtering, soap connect, session management
+:keywords: wsdl, operation filtering, soap connect, session management
 
 == Introduction
 For a particular `ServiceDefinition`, the developer is able to filter out (that is, hide from the connector user) individual operations that are declared in the WSDL file.
