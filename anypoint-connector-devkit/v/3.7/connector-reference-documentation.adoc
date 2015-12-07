@@ -1,12 +1,8 @@
 = Creating Connector Documentation
-:keywords: devkit, reference documentation
-:toc: macro
-:toc-title: Contents
-:toclevels: 3
+:keywords: devkit, reference documentation, apidoc, javadoc
 
 This document describes how to write Javadoc comments in your connector code and generate readable documentation for your users.
 
-toc::[]
 
 == Introduction
 
