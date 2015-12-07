@@ -229,8 +229,6 @@ Alternatively, you can navigate to the connector's root directory and execute th
 mvn clean compile -DgenerateApidocs
 ----
 
-//TODO: specify the command to use since this above did not work for JDK7
-//what worked was: mvn clean compile -Dgenerate.apidocs
 
 The generated documentation can be found in the `target/apidocs` directory in your connector folder. Open the file `connectorname-apidoc.html` to show the fully generated documentation in the browser.
 
