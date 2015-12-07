@@ -63,23 +63,6 @@ You can also use the following Maven command to package the connector instead of
 mvn clean package
 ----
 
-== Creating a Compressed Project File
-
-To create a compressed file of your project:
-
-. In Anypoint Studio, right-click your project name in the Package Explorer, and click *Export*.
-. Click *General* > *Archive* File with these settings. Choose whether you want a TAR file (for Linux or Mac) or a ZIP file for Mac or Windows. (Windows users can also uncompress TAR files using third-party software such as 7zip.) +
-IMPORTANT: Uncheck the *target* folder.
-+
-image:ArchiveFile.png[ArchiveFile]
-
-. Click the down arrow next to your project name and unclick *target*: +
-+
-image:ArchiveDirs.png[ArchiveDirs]
-
-. Click *Browse* in *To archive file* and choose the name and location of the zip or tar file.
-. Click *Finish* to create the compressed file.
-
 == Documenting With Use Cases
 
 Before releasing your connector, document your connector effectively. Useful documentation can help reduce your support and training costs, as well as improving customer satisfaction.
