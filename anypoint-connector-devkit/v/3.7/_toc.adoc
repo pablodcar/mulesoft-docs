@@ -45,7 +45,6 @@
 ** link:/anypoint-connector-devkit/v/3.7/packaging-your-connector-for-release[Packaging Your Connector for Release]
 ** link:/anypoint-connector-devkit/v/3.7/connector-certification-program-guidelines[Connector Certification Program Guidelines]
 ** link:/anypoint-connector-devkit/v/3.7/anypoint-connector-examples[Anypoint Connector Examples]
-//todo: delete or update bigtime*** link:/anypoint-connector-devkit/v/3.7/tutorial-barn-connector[Tutorial - Barn Connector - delete or update drastically offline]
 *** link:/anypoint-connector-devkit/v/3.7/creating-a-connector-using-a-java-sdk[Creating a Connector Using a Java SDK]
 *** link:/anypoint-connector-devkit/v/3.7/creating-a-connector-for-a-soap-service-via-cxf-client[Creating a Connector for a SOAP Service Via CXF Client]
 *** link:/anypoint-connector-devkit/v/3.7/creating-a-connector-for-a-restful-api-using-jersey[Creating a Connector for a RESTful API Using Jersey - insert migration plan for RESTCall to Jersey]
