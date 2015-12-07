@@ -7,7 +7,6 @@ The sections below describe the specific details necessary for connector certifi
 
 MuleSoft’s connector certification program guides you through the process of creating an enterprise-grade connector that is ready for certification by MuleSoft. Once certified, the connector will be made available through the Anypoint Exchange for discovery and use for our customers and developers.
 
-
 == Before You Begin
 
 Before embarking on the certification program, please consider the following and make sure you can adhere to the below requirements:
