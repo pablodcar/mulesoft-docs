@@ -13,7 +13,7 @@ As you move forward you will learn the features that DevKit provides to help you
 
 == What is DevKit?
 
-The http://www.mulesoft.org/documentation/display/current/Anypoint+Connector+DevKit[DevKit] is an important part of the Anypoint Platform. The DevKit is a Maven-based tool that lets you build reusable components that not only can be run as part of a Mule application, but also can be easily configured and consumed from link:http://www.mulesoft.com/platform/mule-studio[Anypoint Studio].
+The link:/anypoint-connector-devkit/v/3.7/index[Anypoint Connector DevKit][DevKit] is an important part of the Anypoint Platform. The DevKit is a Maven-based tool that lets you build reusable components that not only can be run as part of a Mule application, but also can be easily configured and consumed from link:http://www.mulesoft.com/platform/mule-studio[Anypoint Studio].
 
 == When to Use DevKit
 
@@ -38,26 +38,11 @@ A connector also abstracts users from the complexity of initializing required el
 
 To develop a connector you should have a working knowledge of Mule, Anypoint Studio, and Java development in general, specifically the use of https://docs.oracle.com/javase/tutorial/java/annotations/basics.html[Java annotations].
 
-DevKit's functionality is to expose to connector developers  http://docs.oracle.com/javase/tutorial/java/annotations/[Java annotations] that generate code and files to interact with Mule, and Anypoint Studio. The generated code provides the interface between the connector and Mule that would otherwise require each connector developer to include extensive boilerplate code, as well as the code and files required to interact with your connector in Anypoint Studio.
+DevKit's functionality is to expose to connector developers  link:http://docs.oracle.com/javase/tutorial/java/annotations/[Java annotations] that generate code and files to interact with Mule, and Anypoint Studio. The generated code provides the interface between the connector and Mule that would otherwise require each connector developer to include extensive boilerplate code, as well as the code and files required to interact with your connector in Anypoint Studio.
 
 You can develop a connector using Windows, Mac, or Linux.
 
-== Set Up Your Environment
-
-. Download and install http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html[Java 1.7 JDK].
-. Download and install http://maven.apache.org/download.cgi[Maven]. If you're new to Maven, read http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html[Maven in 5 Minutes].
-. Download http://www.mulesoft.com/platform/mule-studio[Anypoint Studio].
-. Check http://www.mulesoft.org/documentation/display/current/Maven+Support+in+Anypoint+Studio[Maven configuration] in Anypoint Studio.
-. Install http://www.mulesoft.org/documentation/display/current/Setting+Up+Your+Dev+Environment#SettingUpYourDevEnvironment-DevKitPlugin[Anypoint DevKit plugin].
-. Install a http://git-scm.com/downloads[GitHub] client.
-+
-[WARNING]
-====
-JRE is not suited for development, you need to have a JDK installed.
-====
-
-For information on setup and DevKit, see
-http://www.mulesoft.org/documentation/display/current/Setting+Up+Your+Dev+Environment[Setting up Your Dev Environment] and  http://www.mulesoft.org/documentation/display/current/Anypoint+Connector+DevKit[Anypoint Connector DevKit].
+For information on setup and DevKit, see link:/anypoint-connector-devkit/v/3.7/setting-up-your-dev-environment[Setting Up Your Development Environment] and link:/anypoint-connector-devkit/v/3.7/index[Anypoint Connector DevKit].
 
 == Import the Cookbook
 
@@ -82,7 +67,8 @@ mvn install eclipse:eclipse
 . When done, in Anypoint Studio, import the root project as an existing project with the *File* > *Import* > *General* > *Existing Projects into Workspace* commands.
 
 == Cookbook Description
-The "Cookbook" is a service that helps users organize ingredients and recipes, so that users can easily find recipes for the foods they like to prepare.
+
+The "Cookbook" was created as a web service to help users organize ingredients and recipes, so that they can easily find recipes for the foods they like to prepare.
 
 === API Description
 
@@ -95,9 +81,9 @@ The API is exposed as a SOAP Service using a  link:{resourcesDir}/wsdl/IMuleCook
 
 This connector supports the following authentication types:
 
-* Custom with a username and password that provides a token to send with each request as part of the request.
+* Custom authentication with a username and password that provides a token to send with each request as part of the request.
 
-* http://oauth.net/2/[OAuthV2]
+* link:http://oauth.net/2/[OAuthV2]
 
 ==== Credentials
 
@@ -266,7 +252,7 @@ image::processor1.png[width="600"]
 +
 image::processor2.png[width="600"]
 +
-. Run the http://www.mulesoft.org/documentation/display/current/Creating+an+Anypoint+Connector+Project#CreatinganAnypointConnectorProject-MoreDevKitActions[Generate Sources] Action.
+. Run the link:/anypoint-connector-devkit/v/3.7/creating-a-java-sdk-based-connector#generating-sources[Generate Sources] Action.
 +
 See full link:{resourcesDir}/java/v1/CookbookConnector.java[Connector] source code.
 
@@ -307,7 +293,7 @@ Our example in this case looks like this:
 === Using the Connector in Mule
 You will do a very simple app that listens to an HTTP endpoint and when we hit it, it will retrieve the list of recently added elements.
 
-. Create a mule app and add a simple http listener. If this is your first mule app, take a look at our http://www.mulesoft.org/documentation/display/current/Build+a+Hello+World+Application[Hello World Application].
+. Create a mule app and add a simple http listener. If this is your first mule app, take a look at our link:/mule-fundamentals/v/3.7/build-a-hello-world-application[Hello World Application].
 . Drag and drop the Connector, and configure it.
 +
 image::mule-app/first-mule-app-config.png[width="600"]
@@ -345,7 +331,7 @@ include::{resourcesDir}/mule-app/first-mule-app.xml[]
 </div>
 ++++
 
-If you hit the url http://localhost:8081/get-recently you will see a reply similar to:
+If you hit the url `http://localhost:8081/get-recently` you will see a reply similar to:
 
 [source,json]
 ----
@@ -376,14 +362,12 @@ If you hit the url http://localhost:8081/get-recently you will see a reply simil
 ]
 ----
 
-// TODO IGNORE TESTING SECTION FOR NOW
-// include::testing-processor.adoc[]
 
 If you want to know how to create tests for your connector check:
 
-* http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_functional_tests_automation[Tests Automation] documentation.
+* link:http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_functional_tests_automation[Tests Automation] documentation.
 
-* The full http://www.mulesoft.org/documentation/display/current/Developing+DevKit+Connector+Tests[testing documentation].
+* The full link:/anypoint-connector-devkit/v/3.7/developing-devkit-connector-tests[testing documentation].
 
 === Adding Connection Management
 
@@ -474,9 +458,9 @@ include::{resourcesDir}/mule-app/mule-app-connection-management.xml[]
 
 See:
 
-* Check the http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_test_connectivity[Test Connectivity] section.
+* Check the link:http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_test_connectivity[Test Connectivity] section.
 
-* http://www.mulesoft.org/documentation/display/current/Authentication[DevKit Authentication] documentation.
+* link:/anypoint-connector-devkit/v/3.7/authentication[Authentication][DevKit Authentication] documentation.
 
 == Improving Error Handling
 
@@ -484,13 +468,13 @@ This section explains how to improve exception handling and reconnecting.
 
 === Exception Handling with @Handler
 
-The http://www.mulesoft.org/documentation/display/current/Annotation+Reference#AnnotationReference-handleran[@Handler] feature, is very useful when you want to avoid duplicated code when handling exceptions, and also so that your connector code is cleaner.
+The @Handler feature, is very useful when you want to avoid duplicated code when handling exceptions, and also so that your connector code is cleaner.
 
 When handling messages retrieved from the API, if the message is poor and you know how to improve it, you can use this mechanism, to enrich the error provided to the user.
 
 To see how it works, let's create a handler for the InvalidEntityException thrown by the create() call of the Cookbook SDK.
 
-. Create a new Anypoint Connector Component by doing a right click and selecting the wizzard.
+. Create a new Anypoint Connector Component by doing a right click and selecting the wizard.
 +
 image::new-component.png[width="600"]
 +
@@ -553,8 +537,8 @@ Even though DataSense is optional, its use enables connector users to acquire me
 
 See:
 
-* http://www.mulesoft.org/documentation/display/current/Adding+DataSense[Adding DataSense]
-* http://www.mulesoft.org/documentation/display/current/DataSense[DataSense]
+* link:/anypoint-connector-devkit/v/3.7/adding-datasense[Adding DataSense]
+
 
 In this tutorial, we use a static DataSense model, which means that the entities are fixed and known upfront, and do not change. The fields that this model supports are also fixed.
 
@@ -718,7 +702,7 @@ image::datasense/datasense-ui.png[width="900"]
 +
 image::datasense/datasense-map.png[width="900"]
 
-To see how to test DataSense check our http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_testing_metadata[Testing DataSense] guide.
+To see how to test DataSense check our link:http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_testing_metadata[Testing DataSense] guide.
 
 // TODO
 // === Adding @Query
@@ -763,7 +747,7 @@ NOTE: If you have a reconnection strategy, DevKit will automatically reconnect a
 
 See:
 
-* http://www.mulesoft.org/documentation/display/current/Adding+Query+Pagination+Support[Adding Pagination Support].
+* link:/anypoint-connector-devkit/v/3.7/adding-query-pagination-support[Adding Query Pagination Support][Adding Pagination Support].
 
 === Using Pagination In Your Mule App
 
@@ -813,7 +797,7 @@ To install your connector from the DevKit plugin:
 +
 image::install/install1.png[width="500"]
 +
-This triggers the DevKit Maven build tool, which generates an http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Fconcepts%2Fupdate_site.htm[update site] folder.
+This triggers the DevKit Maven build tool, which generates an link:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Fconcepts%2Fupdate_site.htm[update site] folder.
 +
 The files will be copied under the *dropins* folder located in the same directory as the AnypointStudio executable, and installed without the need of rebooting your AnypointStudio.
 +
@@ -1039,8 +1023,8 @@ Check link:{resourcesDir}/java/v9/CookBookConnector.java[full source] code.
 
 See:
 
-* http://www.mulesoft.org/documentation/display/current/Authentication[DevKit Authentication] documentation.
-* http://www.mulesoft.org/documentation/display/current/OAuth+V2[OAuth V2].
+* link:/anypoint-connector-devkit/v/3.7/authentication[Authentication] documentation.
+* link:/anypoint-connector-devkit/v/3.7/oauth-v2[OAuth V2].
 * <<mutiple-connection-strategies,Supporting Multiple Connection Strategies>>.
 
 [[mutiple-connection-strategies]]
@@ -1313,9 +1297,9 @@ For example in our case, to consume the SDK for the Cookbook we can add the depe
 
 === SOAP API
 
-If you have a wsdl, the easiest way to build a connector is to create a client using CXF http://cxf.apache.org/docs/wsdl-to-java.html[wsdl2java].
+If you have a wsdl, the easiest way to build a connector is to create a client using CXF link:http://cxf.apache.org/docs/wsdl-to-java.html[wsdl2java].
 
-You can configure the CXF goal in your pom.xml file very easily. The full documentation is at the Apache  http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html[CXF site].
+You can configure the CXF goal in your pom.xml file very easily. The full documentation is at the Apache  link:http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html[CXF site].
 
 For example, in your pom.xml file, you can add the following plus all required dependencies:
 [source,xml,indent=0,linenums]
