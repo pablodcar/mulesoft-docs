@@ -1,4 +1,4 @@
-= Session Management for SOAPConnect
+= SOAP Session Management
 :keywords: soap connect, session management, wsdl, web service, soap
 
 To support SOAP-based connector development, DevKit 3.8.0 comes equipped with the ability to define a session token for managing connections, SOAP sessions and service operations requiring a token.
