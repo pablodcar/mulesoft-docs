@@ -45,12 +45,16 @@ Most of the Java code you write for your connector relates to how you call your 
 
 Use the table below to select an approach for building your connector based on the style of your API:
 
-[width="100%",cols="50%,50%",options="header",]
+[width="100%",cols=",,",options="header",]
 |===
 |API Example |Notes
 |link:/anypoint-connector-devkit/v/3.7/creating-a-connector-using-a-java-sdk[Java Client Library] |If an official or well-known third party library is available, this is generally the simplest connector style to implement, and is recommended. Most client libraries are actually wrappers for SOAP or RESTful APIs.
 |link:/anypoint-connector-devkit/v/3.7/creating-a-connector-for-a-soap-service-via-cxf-client[SOAP API] |The defacto standard library for building and consuming SOAP Web services, this style handles client logic and Java object mapping to XML. In Anypoint Studio, the WSDL you indicate builds a connector automatically.
-|link:/anypoint-connector-devkit/v/3.7/creating-a-connector-for-a-restful-api-using-restcall-annotations[RESTful API] |Anypoint DevKit provides a built-in client for RESTful APIs. Useful for cleanly designed RESTful APIs.
+|link:/anypoint-connector-devkit/v/3.7/creating-a-connector-for-a-restful-api-using-jersey[RESTful API] a|Anypoint DevKit provides a way to build a Jersey-based client connector for RESTful APIs.
+
+[NOTE]
+`@RestCall` annotations have been *deprecated* for DevKit 3.8.0. Find the old `@RestCall` documentation in the DevKit 3.7 section link:/anypoint-connector-devkit/v/3.7/creating-a-connector-for-a-restful-api-using-restcall-annotations[Creating a Connector for a RESTful API using @RESTCall Annotations]
+
 |===
 
 For more details, refer to link:/anypoint-connector-devkit/v/3.7/connector-attributes-and-operations[Connector Attributes and Operations].
