@@ -1,4 +1,4 @@
-= Connector License Management for Partners
+= MuleSoft Certified Connector License Management
 :keywords: connector, devkit, license, key, keygen, partner, paid
 
 == Introduction
