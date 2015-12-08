@@ -1,26 +1,43 @@
 = Connector License Management for Partners
+:keywords: connector, devkit, license, key, keygen, partner, paid
 
 == Introduction
 
-With DevKit 3.8, MuleSoft partners can manage their connector’s license natively with DevKit, ensuring only paid customers are using the connector.
+With *DevKit 3.8*, MuleSoft connector vendors, referred to here also as "partners", can manage their connector’s license natively with DevKit before the connector is packaged for release, ensuring only the partner's paid customers are using the connector.
 
 Partners that have built a MuleSoft Certified Connector can give potential customers the chance to build a Mule application with their connector and test it on the Mule ESB bundled with Anypoint Studio. However, upon deploying the Mule application with the connector, customers are prompted for the partner's generated key ensuring they possess a valid license from the partner.
-//TODO: Use Nathan's description from tech spec. Is this pass called a key?
 
-== Partner Perspective
+== Why Use This Licensing Mechanism
 
-=== Why Partner Should Use This Feature
-//TODO: Why to choose this feature of key generation mechanism
-//Video: show partner end user experience/flow if you implement
-the key generation mechanism. Otherwise, you have to manage the keygen independently
+Using a MuleSoft-generated key ensures only the MuleSoft partner's paid customers have complete access to the paid version of the connector. Users who would like to test out the connector before purchasing it are able to experiment with the connector in design in Anypoint Studio and run their application in Studio's embedded Mule runtime.
+//todo: Video...show partner end user experience/flow if you implement the key generation mechanism.
+//todo: help rephrasing this sentence: otherwise, the partner would have to manage the keygen independently
+
+== Before Releasing a MuleSoft Certified Connector
+
+Before releasing the connector, the Partner's DevKit developer should complete these steps:
+
+. Upon request by the partner, MuleSoft runs the DevKit License Generation Tool (DLT) to generate the partner's key and keystore.
+. The partner then adjusts the connector project code accordingly by applying the `@RequiresEntitlement` annotation, and entering values for all requested attributes.
+//todo: need information about the required attributes, showing code sample
+.. The *provider name* is required to match the name of the `.key` file given by Mule. For example, if MuleSoft generated a vendor key using the name “Splunk.key”, then the provider name has to be “Splunk”.
+.. Put the given `.key` file under the `src/main/resources` or `src/main/resources/license` folder in the connector’s project directory
+. The partner uses the key in the DLT to produce a license for the connector customer, which should then be provided to the respective customer.
 
 
-=== Code Snippet Required @Annotation in Partner Java Class
+== Developing with a Paid and Licensed Connector
 
-=== Step 1 - what you need to do is provide additional information to get the key, before you release connector (for certified connectors only) in a form
+For the customer to validate their working connector license, the customer must make their license (`.lic`) file available through either the Mule application or the Mule server.
 
-=== How to generate the key
+=== License File in the Mule Application
 
-////
-TODO: Separate documentation detailing User experience. At deployment, customer needs to provide the partner-provided Key to be able to use the connector in their application
-////
+Once the customer has already bought a license for the connector, the `.lic` file provided to the customer by the partner/vendor has to be placed either:
+* under `src/main/resources` in the application (developed in Studio) or,
+* under `app/classes` if the application has already been unpacked and deployed on the server.
+
+=== License File in the Mule Server
+
+Or, instead of having the license stored in the application, it can be placed inside the `conf/` folder of the Mule server.
+
+[NOTE]
+This is the recommended approach if multiple applications require the same license.
