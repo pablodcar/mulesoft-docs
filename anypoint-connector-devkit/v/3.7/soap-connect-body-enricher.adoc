@@ -1,7 +1,5 @@
-= SOAP Body Enricher Annotation
+= @WsdlBodyEnricher
 :keywords: soap body, connector, soapconnect, enricher, wsdl
-
-== Introduction
 
 With the release of DevKit 3.8.0. the `@WsdlBodyEnricher` annotation is intended for the session token to be injected into the SOAP body.
 //todo: is it really being injected into the wsdl, or is it called the soap message?

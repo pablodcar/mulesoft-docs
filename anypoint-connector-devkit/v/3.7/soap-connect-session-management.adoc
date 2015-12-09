@@ -103,6 +103,22 @@ public class Config {
 }
 ----
 
+== Enriching SOAP Body With Session Token
+
+With the release of DevKit 3.8.0. the `@WsdlBodyEnricher` can be used to inject the session token into the SOAP body.
+
+=== @WsdlBodyEnricher
+
+The method marked as `@WsdlBodyEnricher` should receive an object representing the message payload, and return it modified with the session token.
+
+[source,java,linenums]
+----
+@WsdlBodyEnricher
+    public Document cookPayload(ServiceDefinition serviceDefinition, String operationName, Document payload){
+        // Customize payload with session token
+    }
+----
+
 == See Also
 * For more information on link:/anypoint-connector-devkit/v/3.8/creating-a-soap-connector[Creating a SOAP Connector]
 * Access the basic DevKit support for link:/anypoint-connector-devkit/v/3.8/connection-management#about-connection-management[Connection Management]
