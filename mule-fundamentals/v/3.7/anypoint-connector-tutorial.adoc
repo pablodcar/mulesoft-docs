@@ -459,4 +459,4 @@ Keep in mind that for this example to work, you must manually configure the foll
 * *NEXT STEP:* Try the link:/mule-fundamentals/v/3.7/mule-message-tutorial[Mule Message Tutorial].
 * See link:https://www.mulesoft.com/exchange#!/?types=connector&sortBy=name[information on each connector].
 * Import link:/mule-user-guide/v/3.7/installing-connectors[additional connectors] into your instance of Anypoint Studio.
-* Learn how to create your own Anypoint Connectors using the link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit].
+* Learn how to create your own Anypoint Connectors using the link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit].
