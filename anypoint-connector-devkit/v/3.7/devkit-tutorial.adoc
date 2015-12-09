@@ -13,7 +13,7 @@ As you move forward you will learn the features that DevKit provides to help you
 
 == What is DevKit?
 
-The link:/anypoint-connector-devkit/v/3.7/index[Anypoint Connector DevKit][DevKit] is an important part of the Anypoint Platform. The DevKit is a Maven-based tool that lets you build reusable components that not only can be run as part of a Mule application, but also can be easily configured and consumed from link:http://www.mulesoft.com/platform/mule-studio[Anypoint Studio].
+The link:/anypoint-connector-devkit/v/3.8/index[Anypoint Connector DevKit][DevKit] is an important part of the Anypoint Platform. The DevKit is a Maven-based tool that lets you build reusable components that not only can be run as part of a Mule application, but also can be easily configured and consumed from link:http://www.mulesoft.com/platform/mule-studio[Anypoint Studio].
 
 == When to Use DevKit
 
@@ -42,7 +42,7 @@ DevKit's functionality is to expose to connector developers  link:http://docs.or
 
 You can develop a connector using Windows, Mac, or Linux.
 
-For information on setup and DevKit, see link:/anypoint-connector-devkit/v/3.7/setting-up-your-dev-environment[Setting Up Your Development Environment] and link:/anypoint-connector-devkit/v/3.7/index[Anypoint Connector DevKit].
+For information on setup and DevKit, see link:/anypoint-connector-devkit/v/3.8/setting-up-your-dev-environment[Setting Up Your Development Environment] and link:/anypoint-connector-devkit/v/3.8/index[Anypoint Connector DevKit].
 
 == Import the Cookbook
 
@@ -252,7 +252,7 @@ image::processor1.png[width="600"]
 +
 image::processor2.png[width="600"]
 +
-. Run the link:/anypoint-connector-devkit/v/3.7/creating-a-java-sdk-based-connector#generating-sources[Generate Sources] Action.
+. Run the link:/anypoint-connector-devkit/v/3.8/creating-a-java-sdk-based-connector#generating-sources[Generate Sources] Action.
 +
 See full link:{resourcesDir}/java/v1/CookbookConnector.java[Connector] source code.
 
@@ -367,7 +367,7 @@ If you want to know how to create tests for your connector check:
 
 * link:http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_functional_tests_automation[Tests Automation] documentation.
 
-* The full link:/anypoint-connector-devkit/v/3.7/developing-devkit-connector-tests[testing documentation].
+* The full link:/anypoint-connector-devkit/v/3.8/developing-devkit-connector-tests[testing documentation].
 
 === Adding Connection Management
 
@@ -460,7 +460,7 @@ See:
 
 * Check the link:http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_test_connectivity[Test Connectivity] section.
 
-* link:/anypoint-connector-devkit/v/3.7/authentication[Authentication][DevKit Authentication] documentation.
+* link:/anypoint-connector-devkit/v/3.8/authentication[Authentication][DevKit Authentication] documentation.
 
 == Improving Error Handling
 
@@ -537,7 +537,7 @@ Even though DataSense is optional, its use enables connector users to acquire me
 
 See:
 
-* link:/anypoint-connector-devkit/v/3.7/adding-datasense[Adding DataSense]
+* link:/anypoint-connector-devkit/v/3.8/adding-datasense[Adding DataSense]
 
 
 In this tutorial, we use a static DataSense model, which means that the entities are fixed and known upfront, and do not change. The fields that this model supports are also fixed.
@@ -747,7 +747,7 @@ NOTE: If you have a reconnection strategy, DevKit will automatically reconnect a
 
 See:
 
-* link:/anypoint-connector-devkit/v/3.7/adding-query-pagination-support[Adding Query Pagination Support][Adding Pagination Support].
+* link:/anypoint-connector-devkit/v/3.8/adding-query-pagination-support[Adding Query Pagination Support][Adding Pagination Support].
 
 === Using Pagination In Your Mule App
 
@@ -1023,8 +1023,8 @@ Check link:{resourcesDir}/java/v9/CookBookConnector.java[full source] code.
 
 See:
 
-* link:/anypoint-connector-devkit/v/3.7/authentication[Authentication] documentation.
-* link:/anypoint-connector-devkit/v/3.7/oauth-v2[OAuth V2].
+* link:/anypoint-connector-devkit/v/3.8/authentication[Authentication] documentation.
+* link:/anypoint-connector-devkit/v/3.8/oauth-v2[OAuth V2].
 * <<mutiple-connection-strategies,Supporting Multiple Connection Strategies>>.
 
 [[mutiple-connection-strategies]]
