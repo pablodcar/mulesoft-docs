@@ -1,7 +1,4 @@
 = Connector Testing Framework
-:keywords: devkit, test, framework
+:keywords: devkit, test, framework, ctf, functional testing,
 
-Learn how to conduct *functional testing* on your DevKit-built connector using Maven:
-link:/anypoint-connector-devkit/v/3.8/extending-ctf[Extending the Connector Testing Framework]
-
-For more background information see: link:https://mulesoft.github.io/connector-testing-framework/[Connector Testing Framework].
+For background information on functional testing and the implementation of the connector testing framework (CTF), see: link:http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_functional_tests[Functional Testing].

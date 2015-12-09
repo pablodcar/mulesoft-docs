@@ -1,32 +1,35 @@
-= Connector Testing Framework and Extensions
+= Connector Testing Framework
 :keywords: connector testing framework, ctf, devkit, mule, esb, runtime
 
 == Overview
 
-The purpose of the connector testing framework (CTF) is to perform functional testing in as many deployment scenarios as possible. The framework runs a Mule app "externally", unbound to the versions of DevKit and Mule the connector was developed on.
+The purpose of the connector testing framework (CTF) is to perform functional testing in as many deployment scenarios as possible. The framework runs a Mule app "externally", unbound to the versions of DevKit and the Mule runtime the connector was developed on.
 
-Using a simple Maven command, you can perform tests in the runtime specified in your local profile, in an embedded runtime or in multiple runtime versions on your CloudHub instance.
-//TODO: support for "Remote Mule"
+Using a simple Maven command from the connector's root folder, you can perform tests on the connector in the runtime specified in your *local profile*, *embedded runtime* or an *availabe CloudHub runtime* version.
 
 [NOTE]
 The fact that libraries change on CloudHub increases the potential for *incompatibility* between the Mule runtime version and your DevKit-based connector.
-//TODO: more info on this "library changing"
 
 == Deployment Profile Configuration
 
 Pass the desired connector application deployment details as arguments to a single Maven command, specifying the environments you want to test your connector in. All arguments should be in lowercase.
 
-If you do not specify `-Ddeploymentprofile`, otherwise the test will run by default in embedded mode.
+If you do not specify `-Ddeploymentprofile`, the CTF runs by default in embedded mode.
 
 === Embedded Mode
 
-Specifying only `mvn clean test` would run the functional tests in _embedded_ mode.
+Specifying only `mvn clean test` would run the functional tests in _embedded_ mode, depending on the DevKit version. You are not required to have a Mule server to run the application in this mode.
 
-//TODO:Briefly describe this embedded mode...this note doesn't make sense to me: Mule runtime where connector is executed is loaded into memory. It will load what is described in the CTF.
+Running `mvn clean test `is the same as running:
+
+----
+mvn clean test -Ddeploymentprofile=embedded
+----
 
 === Local Mode
 
-Local testing means loading Mule from your user profile. To test locally `-Ddeploymentprofile` *must* be set in `/local`. For example, the command would be structured like:
+Running CTF in Local mode means loading the Mule application deployment specification from your user profile and running the test remotely. To test a connector using your local profile's runtime, the argument `-Ddeploymentprofile` *must* be set in the `/local` folder. For example, the command would be structured like:
+//todo: anywhere in /local, or does it have to be /local/usr/?
 
 ----
 mvn clean test -Ddeploymentprofile= -Dmuledirectory=/local/usr/mule_3.6.3
@@ -35,15 +38,15 @@ mvn clean test -Ddeploymentprofile= -Dmuledirectory=/local/usr/mule_3.6.3
 
 === CloudHub Mode
 
-As of DevKit 3.8.0, CTF support for a CloudHub deployment profile is available, allowing you to test your connector in a more dynamic environment, a clear advantage to deploying a Mule application in a classic standalone environment. The two required parameters you must pass to the Maven command are your CloudHub username `-Dcloudhubuser=` and `-Dcloudhubpassword=`.
-//todo: check all commands with -Ddeploymentprofile=cloudhub
+As of DevKit 3.8.0, CTF support for a CloudHub deployment profile is available, allowing you to test your connector in a more dynamic environment, a clear advantage to deploying a Mule application in a classic standalone environment. The two required parameters, besides specifying `-Ddeploymentprofile=cloudhub`, are your CloudHub username `-Dcloudhubuser=` and `-Dcloudhubpassword=`.
+
 ----
 mvn clean test -Ddeploymentprofile=cloudhub -Dcloudhubuser=<your_username> -Dcloudhubpassword=<your_password>
 ----
 
-==== Optional Parameters
+== Optional Parameters
 
-When testing on CloudHub, you may specify the Mule version to run connector tests on, the CloudHub URL and the CloudHub worker type for your instance. See the example below that includes both the required _and_ optional parameters:
+When testing on CloudHub, you may specify the Mule version to run connector tests on, as well as the CloudHub URL and the CloudHub worker type for your instance. See the example below that includes all the required _and_ optional parameters:
 
 
 [cols=",,"options="header"]
@@ -59,7 +62,7 @@ When testing on CloudHub, you may specify the Mule version to run connector test
 //todo:check above descrip for accuracy
 |===
 
-Example CTF testing command:
+Example CTF test command:
 ----
 mvn clean test -Ddeploymentprofile=cloudhub -Dcloudhubuser=<your_username> -Dcloudhubpassword=<your_password>
 -Dmuleversion=3.7.2
@@ -67,25 +70,17 @@ mvn clean test -Ddeploymentprofile=cloudhub -Dcloudhubuser=<your_username> -Dclo
 -Dcloudhubworkertype=small
 ----
 
-////
-== Remote Mule Mode
-
-//TODO:
-if feasible, how to run Mule App on Docker.
-
-The main objective of CTF-Docker interaction is having the Docker daemon automatically start the Mule ESB servers, deploy the application and test the connector.
-////
-== Troubleshooting
+//== Troubleshooting
 
 ////
 what to do if your test failed
 debug logging to show more info.
-////
+
 
 == Logging
 
 //When connector has a business logic exception
 //TODO: Describe logs in Mule and how to access logs in CloudHub
-
+////
 == See Also
 For more information on CloudHub application management, see link:/cloudhub/managing-applications-and-servers-in-the-cloud-and-on-premises[Managing Applications and Servers in the Cloud and On Premises]
