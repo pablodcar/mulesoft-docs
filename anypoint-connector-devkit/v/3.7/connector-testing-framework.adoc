@@ -1,6 +1,7 @@
 = Connector Testing Framework
 :keywords: devkit, test, framework
 
-This page lists Mule 3.7 changes to the DevKit connector testing framework.
+Learn how to conduct *functional testing* on your DevKit-built connector using Maven:
+link:/anypoint-connector-devkit/v/3.8/extending-ctf[Extending the Connector Testing Framework]
 
-See link:https://mulesoft.github.io/connector-testing-framework/[Connector Testing Framework].
+For more background information see: link:https://mulesoft.github.io/connector-testing-framework/[Connector Testing Framework].
