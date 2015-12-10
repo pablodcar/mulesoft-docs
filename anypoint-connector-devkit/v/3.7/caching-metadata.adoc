@@ -29,23 +29,24 @@ public class CachedResolver {
 The developer should make use of this cache internally when fetching metadata, and to handle some level of consistency between the cache and the service.
 
 [IMPORTANT]
-The provided cache is evicted only when the developer of the Mule application executes *Clear DataSense MetaData* on the connector configuration.
+The provided cache is evicted only when the developer of the Mule application executes *Clear DataSense MetaData* on the connector configuration. After clearing DataSense, a new cache is created.
 
 image:clear-datasense-metadata.png[clear datasense metadata]
 
 This is an example implementation of cache management with `@MetaDataKeyRetriever` (with helper method `populateKeysCache`) and `@MetaDataRetriever` (which invokes either of two helper methods `populateObjectsCache` and `buildMetaData`). With these the cache can be populated.
-//explain when loadKeys is called please
+//todo:explain when loadKeys is called please
 
 
+//todo: replace cache with myCacheField below?
 [source,java,linenums]
 ----
 @MetaDataCategory
 public class CachedResolver {
-       @Cache
+       @MetaDataCache
     private MetaDataCache cache;
 
     public void setCache(MetaDataCache cache) {
-        this.cache = cache;
+        this.ConnectorMetaDataCache = cache;
     }
 
     @MetaDataKeyRetriever
