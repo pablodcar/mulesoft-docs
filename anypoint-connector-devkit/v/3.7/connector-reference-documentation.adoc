@@ -37,13 +37,14 @@ The DevKit-supported Javadoc tags are described in this table and are used in ex
 or instead +
 `{@see <a href="http://example.com">http://example.com</a>}` to display the full URL. For a more detailed discussion of its usage, see link:http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#see
 |`@api.doc`|Adds a new section to the documentation intended to provide a link to a service API’s documentation. You have the option whether or not to use html after the tag| `@api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>`
-
 |`@javadoc` | Can be used on the connector class, for example, `@javadoc.url`, followed by the name of a Java package name and the Javadoc URL. | See <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>> for the code comment snippet.
 |`@param` | Used underneath the description of a method. `@param` adds the parameter name and its description to the reference material. The description should be listed on the line below.| `@param ParamName`
 |`@return` | Adds the description of the function's return type to the "Returns" section of the documentation.| `@return an instance of the data type returned`
-|`@api.doc`
 |===
 
+For visual reference, see what the DevKit 3.8.0 generated documentation for one of Salesforce's service API operations looks like:
+
+image:apidoc-look.png[apidoc-look]
 
 [NOTE]
 Documentation is not mandatory, however, unless you disable the Javadoc Check, errors display. To disable Javadoc Check and show errors as warnings, right-click your project, and click *Anypoint Connector* > *Disable Javadoc check*.
@@ -146,8 +147,8 @@ public String insertDocument(final String collection, @RefOnly @Default("#[paylo
 
 To embed a link in your documentation to external Javadoc reference material, you may use a `@link` placeholder within your comments provided that the fully qualified name of the class be specified, for example, `{@link org.bson.Document}` *and* the reference to the external third-party Javadoc resource after the `@javadoc.url` tag above the connector class as described in <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>>, otherwise the URL will not be created because the package for that type will not be found.
 
-//TODO: Juan, can you provide an example where the fully qualified path is given after @link, in the format {@link package.class#member label}?
 
+[source,java,linenums]
 ----
 /**
  * Returns a CMIS object from the repository and puts it into the cache.
@@ -233,6 +234,8 @@ mvn clean compile -DgenerateApidocs
 The generated documentation can be found in the `target/apidocs` directory in your connector folder. Open the file `connectorname-apidoc.html` to show the fully generated documentation in the browser.
 
 As you build out your connector, perform a review of the generated documentation to ensure that the contents are sane and correct. If you find the generated documentation insufficient, you can always include more detail in the Javadoc comments in your code.
+
+
 
 == See Also
 
