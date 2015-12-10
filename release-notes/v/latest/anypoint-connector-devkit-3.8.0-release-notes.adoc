@@ -38,12 +38,12 @@ DevKit Version 3.8.0 is compatible with:
 Follow link:/anypoint-connector-devkit/v/3.8/creating-a-connector-for-a-restful-api-using-jersey[Creating a Connector for a RESTful API Using Jersey] to migrate any @RestCall-based connector.
 
 == Fixed Issues
-This release includes several fixes, and the most important ones are:
+This release includes several fixes and the most important are as follows:
 
 * Supports byte-type and short-type parameters in processor.
 * Supports Gregorian Calendar in DSQL query.
 * CTF doesn’t throw NullPointerException when a process returns legitimate empty body.
 * WSDLProvider shows a specific error message rather than a generic error message, helping developers handle the error easily.
-* Resolves an issue that connector’s metadata didn’t show up in Anypoint Studio 5.2.
+* Resolves an issue causing connector metadata not appearing in Anypoint Studio 5.2.
 * CTF generates a well-formated JSON for metadata.
-* Supports MetaDataKeyParam.BOTH and MetaDataKeyParam.INPUT in processors properly.
+* Properly supports MetaDataKeyParam.BOTH and MetaDataKeyParam.INPUT in processors.
