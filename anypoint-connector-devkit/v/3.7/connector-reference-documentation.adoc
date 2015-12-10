@@ -42,7 +42,7 @@ or instead +
 |`@return` | Adds the description of the function's return type to the "Returns" section of the documentation.| `@return an instance of the data type returned`
 |===
 
-For visual reference, see what the DevKit 3.8.0 generated documentation for one of Salesforce's service API operations looks like:
+For visual reference, have a look at the DevKit 3.8.0 generated documentation for one of the Salesforce connector's operations:
 
 image:apidoc-look.png[apidoc-look]
 
