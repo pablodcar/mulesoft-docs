@@ -5,7 +5,7 @@
 *** link:/anypoint-connector-devkit/v/3.8/setting-up-your-dev-environment[Setting Up Your Development Environment]
 *** link:/anypoint-connector-devkit/v/3.8/devkit-tutorial[DevKit Tutorial]
 *** link:/anypoint-connector-devkit/v/3.8/connector-project-structure[Connector Project Structure]
-** link:/anypoint-connector-devkit/v/3.8/creating-an-anypoint-connector-project[Anypoint Connector Developer Guide]
+** link:/anypoint-connector-devkit/v/3.8/creating-an-anypoint-connector-project[Creating an Anypoint Connector Project]
 *** link:/anypoint-connector-devkit/v/3.8/creating-a-java-sdk-based-connector[Creating a Java SDK-Based Connector]
 **** link:/anypoint-connector-devkit/v/3.8/creating-a-connector-using-a-java-sdk[Java SDK-Based Connector Example]
 *** link:/anypoint-connector-devkit/v/3.8/creating-a-soap-connector/[Creating a SOAP Connector]
@@ -39,7 +39,6 @@
 *** link:/anypoint-connector-devkit/v/3.8/adding-query-pagination-support[Adding Query Pagination Support]
 *** link:/anypoint-connector-devkit/v/3.8/building-a-batch-enabled-connector[Building a Batch Enabled Connector]
 *** link:/anypoint-connector-devkit/v/3.8/shading-libraries[Shading Libraries]
-//TODO:  - delete/update below - should make this more of a tutorial on CTF - http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_test_execution - what has been started with Timpa
 ** link:/anypoint-connector-devkit/v/3.8/developing-devkit-connector-tests[Developing DevKit Connector Tests]
 *** link:/anypoint-connector-devkit/v/3.8/connector-testing-framework[Connector Testing Framework]
 //todo: delete below? too old?
