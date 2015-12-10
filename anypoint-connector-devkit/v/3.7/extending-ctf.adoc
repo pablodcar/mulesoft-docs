@@ -5,7 +5,7 @@
 
 The purpose of the connector testing framework (CTF) is to perform functional testing in as many deployment scenarios as possible. The framework runs a Mule app "externally", unbound to the versions of DevKit and the Mule runtime the connector was developed on.
 
-Using a simple Maven command from the connector's root folder, you can perform tests on the connector in the runtime specified in your *local profile*, *embedded runtime* or an *availabe CloudHub runtime* version.
+Using a simple Maven command from the connector's root folder, you can perform tests on the connector in the runtime specified in your *local profile*, *embedded runtime* or an *available CloudHub runtime* version.
 
 [NOTE]
 The fact that libraries change on CloudHub increases the potential for *incompatibility* between the Mule runtime version and your DevKit-based connector.
