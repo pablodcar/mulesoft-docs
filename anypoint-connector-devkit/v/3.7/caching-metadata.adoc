@@ -42,7 +42,8 @@ This is an example implementation of cache management with `@MetaDataKeyRetrieve
 ----
 @MetaDataCategory
 public class CachedResolver {
-       @MetaDataCache
+
+    @MetaDataCache
     private MetaDataCache cache;
 
     public void setCache(MetaDataCache cache) {
