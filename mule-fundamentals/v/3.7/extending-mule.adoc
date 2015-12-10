@@ -22,7 +22,7 @@ image:add_to_OSS_half_size.png[Add to OSS]
 
 == Build Customized Functionality 
 
-If you find that your integration development team regularly requires functionality not included with Mule out of the box, you can make use of the extensive link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit] to build your own extensions. 
+If you find that your integration development team regularly requires functionality not included with Mule out of the box, you can make use of the extensive link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit] to build your own extensions. 
 
 Use DevKit to:
 

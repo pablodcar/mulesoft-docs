@@ -156,4 +156,4 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 
 * link:/mule-user-guide/v/3.7/web-service-consumer[Web Service Consumer]
 * link:/mule-user-guide/v/3.7/json-module-reference[JSON Module Reference]
-* link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit]
+* link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit]
