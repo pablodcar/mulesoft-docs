@@ -145,7 +145,7 @@ public String insertDocument(final String collection, @RefOnly @Default("#[paylo
 
 === Documenting Connection Strategies
 
-With version 3.8.0 of DevKit, it is possible to generate as many connection strategies as are provided by the developer:
+With version 3.8.0 of DevKit, it is possible to generate documentation for as many connection strategies as are provided by the developer, and will appear under the "Configs" heading:
 
 image:multiple-configs.png[multiple-configs]
 
