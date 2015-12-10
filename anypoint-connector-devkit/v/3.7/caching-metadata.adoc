@@ -3,12 +3,12 @@
 
 == Introduction
 
-This feature allows the DevKit developer to enable a connector to retrieve metadata from a cache so that retrieval wait times decrease overall, enhancing the connector user experience.
+This feature allows the DevKit developer to enable a connector to retrieve metadata from a cache to decrease retrieval wait times overall, enhancing the connector user experience.
 
 == Implementation
 
-The two annotations required of the DevKit developer are `@MetaDataCategory` and `@Cache`:
-//todo:
+To ensure an initialized cache is injected every time the metadata methods are invoked, the DevKit developer has to place `@MetaDataCategory` on the "CachedResolver" class and declare the `@MetaDataCache` inside this class. After the `@MetaDataCache` cache is declared it is persisted by DevKit.
+//todo: please confirm, elaborate on above, especially "CachedResolver"
 
 [source, java, linenums]
 ----
@@ -16,7 +16,7 @@ The two annotations required of the DevKit developer are `@MetaDataCategory` and
 public class CachedResolver {
 
     @MetaDataCache
-    ConnectorMetaDataCache myCacheField;
+    private ConnectorMetaDataCache myCacheField;
 
     public void setCache(ConnectorMetaDataCache myCacheField) {
         this.myCacheField = myCacheField;
@@ -26,16 +26,16 @@ public class CachedResolver {
 }
 ----
 
-It is the connector developer's responsibility to make use of this cache internally when fetching metadata, and to handle some level of consistency between the cache and the service.
-
-When declared, the @MetaDataCache is declared is persisted by DevKit.
+The developer should make use of this cache internally when fetching metadata, and to handle some level of consistency between the cache and the service.
 
 [IMPORTANT]
 The provided cache is evicted only when the developer of the Mule application executes *Clear DataSense MetaData* on the connector configuration.
 
 image:clear-datasense-metadata.png[clear datasense metadata]
 
-This is an example of `@MetaDataKeyRetriever` using the cache:
+This is an example implementation of cache management with `@MetaDataKeyRetriever` (with helper method `populateKeysCache`) and `@MetaDataRetriever` (which invokes either of two helper methods `populateObjectsCache` and `buildMetaData`). With these the cache can be populated.
+//explain when loadKeys is called please
+
 
 [source,java,linenums]
 ----
