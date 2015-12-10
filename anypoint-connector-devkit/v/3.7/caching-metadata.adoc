@@ -8,24 +8,27 @@ This feature allows the DevKit developer to enable a connector to retrieve metad
 == Implementation
 
 The two annotations required of the DevKit developer are `@MetaDataCategory` and `@Cache`:
+//todo:
 
 [source, java, linenums]
 ----
 @MetaDataCategory
 public class CachedResolver {
 
-    @Cache
-    private MetaDataCache cache;
+    @MetaDataCache
+    ConnectorMetaDataCache myCacheField;
 
-    public void setCache(MetaDataCache cache) {
-        this.cache = cache;
+    public void setCache(ConnectorMetaDataCache myCacheField) {
+        this.myCacheField = myCacheField;
     }
 
     //...
 }
 ----
 
-It is the connector developer's responsibility to make use of this cache internally when fetching MetaData, and to handle some level of consistency between the cache and the service.
+It is the connector developer's responsibility to make use of this cache internally when fetching metadata, and to handle some level of consistency between the cache and the service.
+
+When declared, the @MetaDataCache is declared is persisted by DevKit.
 
 [IMPORTANT]
 The provided cache is evicted only when the developer of the Mule application executes *Clear DataSense MetaData* on the connector configuration.
