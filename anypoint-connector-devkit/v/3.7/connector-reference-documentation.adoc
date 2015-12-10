@@ -33,9 +33,9 @@ The DevKit-supported Javadoc tags are described in this table and are used in ex
 |===
 |Tag|Description|Example
 |`@link` | Provides an in-line link pointing to the documentation for the specified package if the fully qualified name is provided, otherwise the text after link is parsed as a string. | `{@link package.name.Class}`
-|`@see` | provides an in-line link to a URL, for example to a page where a related class or method is described| If you want URLs inside your Javadoc comments to be parsed as hyperlinks, you can use the Javadoc tag `@see` to create an in-line link that will parse `{@see http://example.com}` +
+|`@see` | provides an in-line link to a URL, for example to a page where a related class or method is described a| If you want URLs inside your Javadoc comments to be parsed as hyperlinks, you can use the Javadoc tag `@see` to create an in-line link that will parse `{@see http://example.com}` +
 or instead +
-`{@see <a href="http://example.com">http://example.com</a>}` to display the full URL. For a more detailed discussion of its usage, see link:http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#see
+`{@see <a href="http://example.com">http://example.com</a>}` to display the full URL. For a more detailed discussion of its usage, see link:http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#see[Javadoc reference]
 |`@api.doc`|Adds a new section to the documentation intended to provide a link to a service API’s documentation. You have the option whether or not to use html after the tag| `@api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>`
 |`@javadoc` | Can be used on the connector class, for example, `@javadoc.url`, followed by the name of a Java package name and the Javadoc URL. | See <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>> for the code comment snippet.
 |`@param` | Used underneath the description of a method. `@param` adds the parameter name and its description to the reference material. The description should be listed on the line below.| `@param ParamName`
@@ -49,7 +49,7 @@ image:apidoc-look.png[apidoc-look]
 [NOTE]
 Documentation is not mandatory, however, unless you disable the Javadoc Check, errors display. To disable Javadoc Check and show errors as warnings, right-click your project, and click *Anypoint Connector* > *Disable Javadoc check*.
 
-=== Connector Metadata: @Connector and @Author
+=== @Connector and @Author Metadata 
 
 Each class annotated with `@Connector` should have a class-level Javadoc comment with a high-level overview of the extensions. This may also include the `@author` annotation.
 
@@ -142,8 +142,14 @@ public String insertDocument(final String collection, @RefOnly @Default("#[paylo
     return config.getClient().insertObject(collection, document);
 }
 ----
+
+=== Documenting Connection Strategies
+
+With version 3.8.0 of DevKit, it is possible to generate as many connection strategies as are provided by the developer:
+
+image:multiple-configs.png[multiple-configs]
+
 === Linking to External Javadoc Resources
-//TODO: is this title ok, or is this annotation for native Java types too?
 
 To embed a link in your documentation to external Javadoc reference material, you may use a `@link` placeholder within your comments provided that the fully qualified name of the class be specified, for example, `{@link org.bson.Document}` *and* the reference to the external third-party Javadoc resource after the `@javadoc.url` tag above the connector class as described in <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>>, otherwise the URL will not be created because the package for that type will not be found.
 
