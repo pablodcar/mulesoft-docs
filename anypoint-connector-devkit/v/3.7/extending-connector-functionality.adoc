@@ -18,4 +18,4 @@ Improve the efficacy, efficiency and reliability of your connector by implementi
 
 '''''
 
-*link:/anypoint-connector-devkit/v/3.7[Return to Anypoint Connector DevKit]*
+*link:/anypoint-connector-devkit/v/3.8[Return to Anypoint Connector DevKit]*

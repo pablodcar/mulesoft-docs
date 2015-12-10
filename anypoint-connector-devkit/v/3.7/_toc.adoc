@@ -48,4 +48,3 @@
 ** link:/anypoint-connector-devkit/v/3.8/packaging-your-connector-for-release[Packaging Your Connector for Release]
 ** link:/anypoint-connector-devkit/v/3.8/connector-certification-program-guidelines[Connector Certification Program Guidelines]
 *** link:/anypoint-connector-devkit/v/3.8/certified-connector-license-management[MuleSoft Certified Connector License Management]
-//todo: examples live under each connector creation type, may not be needed anymore** link:/anypoint-connector-devkit/v/3.8/anypoint-connector-examples[Anypoint Connector Examples]

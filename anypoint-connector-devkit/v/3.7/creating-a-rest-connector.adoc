@@ -179,4 +179,4 @@ private String category;
 
 == See Also
 
-* For an example on how to implement a @RestCall connector, see link:/anypoint-connector-devkit/v/3.7/creating-a-connector-for-a-restful-api-using-jersey[Creating a Connector for a RESTful API Using Jersey].
+* For an example on how to implement a @RestCall connector, see link:/anypoint-connector-devkit/v/3.8/creating-a-connector-for-a-restful-api-using-jersey[Creating a Connector for a RESTful API Using Jersey].
