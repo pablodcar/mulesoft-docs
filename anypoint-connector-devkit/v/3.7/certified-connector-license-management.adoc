@@ -9,21 +9,24 @@ Partners that have built a MuleSoft Certified Connector can give potential custo
 
 == Why Use This Licensing Mechanism
 
-Using a MuleSoft-generated key ensures only the MuleSoft partner's paid customers have complete access to the paid version of the connector. Users who would like to test out the connector before purchasing it are able to experiment with the connector in design in Anypoint Studio and run their application in Studio's embedded Mule runtime.
-//todo: Video...show partner end user experience/flow if you implement the key generation mechanism.
-//todo: help rephrasing this sentence: otherwise, the partner would have to manage the keygen independently
+Using a MuleSoft-generated key ensures only the MuleSoft partner's paid customers have complete access to the paid version of the connector. Users who would like to test out the connector before purchasing it would be able to experiment with the connector in design in Anypoint Studio and run their application in Studio's embedded Mule runtime.
 
-== Before Releasing a MuleSoft Certified Connector
+//todo: insert link to sample connector in this commented out sentence: Inspect this sample connector in Studio with Mule ESB to help you understand the user experience with the certified connector.
+In trying to deploy this sample connector on CloudHub or Mule ESB On-Prem, you see a pop-up message requesting a valid license.
 
-Before releasing the connector, the Partner's DevKit developer should complete these steps:
+== Before Submitting Your Connector For Certification
 
-. Upon request by the partner, MuleSoft runs the DevKit License Generation Tool (DLT) to generate the partner's key and keystore.
-. The partner then adjusts the connector project code accordingly by applying the `@RequiresEntitlement` annotation, and entering values for all requested attributes.
-//todo: need information about the required attributes, showing code sample
+Before submitting the connector to MuleSoft, the prospective certified connector partner should complete these steps:
+//todo: see above: "should" or "must"?
+
+. Include the following information for MuleSoft to use before generating a partner key and keystore.
+.. *Vendor Name*, *Contact Email*, *Contact Message*, *Connector Name*
+. The partner then adjusts the connector project code accordingly by applying the `@RequiresEntitlement` annotation, and entering values for all requested attributes
+//todo: need information about the required attributes (@Target(value={TYPE}), @Retention(value=SOURCE), @Documented) ???
 .. The *provider name* is required to match the name of the `.key` file given by Mule. For example, if MuleSoft generated a vendor key using the name “Splunk.key”, then the provider name has to be “Splunk”.
+//TODO: where does the vendor see this "provider name" bit?
 .. Put the given `.key` file under the `src/main/resources` or `src/main/resources/license` folder in the connector’s project directory
 . The partner uses the key in the DLT to produce a license for the connector customer, which should then be provided to the respective customer.
-
 
 == Developing with a Paid and Licensed Connector
 
@@ -31,13 +34,14 @@ For the customer to validate their working connector license, the customer must 
 
 === License File in the Mule Application
 
-Once the customer has already bought a license for the connector, the `.lic` file provided to the customer by the partner/vendor has to be placed either:
+Once the customer has already bought a license for the connector, the `.lic` file provided to the customer by the partner/vendor can be placed either:
+
 * under `src/main/resources` in the application (developed in Studio) or,
 * under `app/classes` if the application has already been unpacked and deployed on the server.
 
 === License File in the Mule Server
 
-Or, instead of having the license stored in the application, it can be placed inside the `conf/` folder of the Mule server.
+Instead of storing the license in the application, it can be placed instead in the `conf/` folder of the Mule server.
 
 [NOTE]
 This is the recommended approach if multiple applications require the same license.
