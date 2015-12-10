@@ -17,9 +17,9 @@ DevKit Version 3.8.0 is compatible with:
 
 == New Features
 
-* link:/anypoint-connector-devkit/v/3.8/certified-connector-license-management[License management for MuleSoft Certified Connectors], that is, MuleSoft-certified connector developers
-** Deployment of the application that utilizes a paid connector requires a valid and correctly implemented license
-* link:/anypoint-connector-devkit/v/3.8/soap-connect-session-management[SOAP Session Management] for SOAP Connect-built connectors enabling the developer to inject session tokens in either HTTP cookies or headers, or SOAP headers
+* link:/anypoint-connector-devkit/v/3.8/certified-connector-license-management[License management for MuleSoft Certified Connectors]
+** Developers can enable customers to try their connectors in design time, but make sure their connector only work with valid licenses in deployment.
+* link:/anypoint-connector-devkit/v/3.8/soap-connect-session-management[SOAP Session Management] for SOAP Connect enabling developers to inject session tokens in HTTP cookies/headers, or SOAP headers.
 ** Further DevKit SOAP Connect functionality includes SOAP message body enrichment with the session token
 //todo:insert link for above
 ** Operation Filtering to hide operations specified in the WSDL such as login/logout, which is necessary in order to exclude login/logout operations from the operations dropdown exposed to the application developer
@@ -27,10 +27,18 @@ DevKit Version 3.8.0 is compatible with:
 * Metadata caching improves fetching of metadata during application design, and decreases the wait time for connector users
 //todo:insert link for metadata cache
 * Connector APIDoc documentation is provided intelligently at design time, serving as a contextual help feature
-* Improved APIDoc documentation generator does *not require or support* code snippets referencing the `xml.sample` file such as `<@sample.xml ... >`.  See link:/anypoint-connector-devkit/v/3.8/connector-reference-documentation[Creating Connector Reference Documentation]
+* Improved APIDoc documentation generator creates documentation for multiple connection configurations automatically and covers filter and transformer. In addition, it does *not require or support* code snippets referencing the `xml.sample` file such as `<@sample.xml ... >`.  See link:/anypoint-connector-devkit/v/3.8/connector-reference-documentation[Creating Connector Reference Documentation]
 ** In migrating a connector project to DevKit 3.8, all the `@sample` tags referencing the sample files must be removed
 * A simple Maven command is available for the DevKit user to run connector functional tests (CTF) on CloudHub. Read through the  link:http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_test_execution[Test Execution section] of the connector certification information for details
-* JDK 8 support for DevKit and connector project creation
+* Functional test framework supports @Source tests.
+* JDK 8 support for DevKit and connector project creation. To use JDK 8, please add the following property in your pom.xml
+
+  <properties>
+   …..
+   <jdk.version>1.8</jdk.version>
+   ….
+  </properties>
+
 
 == Deprecated Features
 * @RestCall deprecated with the release of DevKit 3.8.0.
