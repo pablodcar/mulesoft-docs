@@ -40,7 +40,7 @@ Incorporate these kind of tests in your test suite:
 
 A test scaffold is a set of Java files that appear under src/test/java after you use Anypoint Studio to generate tests. Studio generates these files:
 
-=== Test Runners - Runs sets of test cases
+=== Test Runners - Running Sets of Test Cases
 
 * Regression test suite file - You can use this code to uncover new bugs by comparing the previous state of the connector to the current. If this is the first run, it finds new bugs.
 * Smoke test suite file - Reveals simple issues such as "does this feature run?" that you can use to ensure that the basic behaviour of your connector functions as expected.
