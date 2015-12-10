@@ -38,6 +38,12 @@ DevKit Version 3.8.0 is compatible with:
 Follow link:/anypoint-connector-devkit/v/3.8/creating-a-connector-for-a-restful-api-using-jersey[Creating a Connector for a RESTful API Using Jersey] to migrate any @RestCall-based connector.
 
 == Fixed Issues
-* Project failing to build if return type is _short_ or _byte_
-* DSQL Query causing Mule JVM to run out of memory when it contains a Mule expression
-* CTF returning NPE when SOAP connector response has empty body
+This release includes several fixes, and the most important ones are:
+
+* Supports byte-type and short-type parameters in processor.
+* Supports Gregorian Calendar in DSQL query.
+* CTF doesn’t throw NullPointerException when a process returns legitimate empty body.
+* WSDLProvider shows a specific error message rather than a generic error message, helping developers handle the error easily.
+* Resolves an issue that connector’s metadata didn’t show up in Anypoint Studio 5.2.
+* CTF generates a well-formated JSON for metadata.
+* Supports MetaDataKeyParam.BOTH and MetaDataKeyParam.INPUT in processors properly.
