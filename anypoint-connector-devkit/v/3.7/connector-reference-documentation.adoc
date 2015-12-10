@@ -15,6 +15,7 @@ Connector documentation usually consists of:
 * Release notes
 * User guide including use cases - for examples see link:/anypoint-connector-devkit/v/3.8/packaging-your-connector-for-release#documenting-with-use-cases[Documenting with Use Cases]
 
+[NOTE]
 Mule builds on link:http://en.wikipedia.org/wiki/Javadoc[Javadoc] to automate and simplify the creation of technical reference documentation for your connector, by adding a custom Javadoc Doclet and some DevKit-specific Java annotations.
 
 == Prerequisites
@@ -29,17 +30,32 @@ The following sections describe the Javadoc tags and syntax that can be used to 
 
 The DevKit-supported Javadoc tags are described in this table and are used in examples throughout this document.
 //TODO: screenshots or provide link to existing apidoc?
-[width="100%",cols="20a,50a,30a",options="header"]
+[width="100%",cols="20a,40a,40a",options="header"]
 |===
 |Tag|Description|Example
-|`@link` | Provides an in-line link pointing to the documentation for the specified package if the fully qualified name is provided, otherwise the text after link is parsed as a string. | `{@link package.name.Class}`
+|`@link` | Provides an in-line link pointing to the documentation for the specified package if the fully qualified name is provided, otherwise the text after link is parsed as a string. Format: `{@link package.name.Class}` a|
+`* @param document`
+
+`* a {@link org.bson.Document} instance.`
+image:javadoc-link-sample.png[javadoc-link]
+
 |`@see` | provides an in-line link to a URL, for example to a page where a related class or method is described a| If you want URLs inside your Javadoc comments to be parsed as hyperlinks, you can use the Javadoc tag `@see` to create an in-line link that will parse `{@see http://example.com}` +
 or instead +
 `{@see <a href="http://example.com">http://example.com</a>}` to display the full URL. For a more detailed discussion of its usage, see link:http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#see[Javadoc reference]
-|`@api.doc`|Adds a new section to the documentation intended to provide a link to a service API’s documentation. You have the option whether or not to use html after the tag| `@api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>`
-|`@javadoc` | Can be used on the connector class, for example, `@javadoc.url`, followed by the name of a Java package name and the Javadoc URL. | See <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>> for the code comment snippet.
-|`@param` | Used underneath the description of a method. `@param` adds the parameter name and its description to the reference material. The description should be listed on the line below.| `@param ParamName`
-|`@return` | Adds the description of the function's return type to the "Returns" section of the documentation.| `@return an instance of the data type returned`
+|`@api.doc`|Adds a new section to the documentation intended to provide a link to a service API’s documentation. You have the option whether or not to use html after the tag a|
+`* @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>`
+
+image:apidoc-ref-sample.png[apidoc-ref-sample]
+|`@javadoc` | Can be used on the connector class, for example, `@javadoc.url`, followed by the name of a Java package name and the Javadoc URL, which the `@link` tag can use to reference a data type referenced in javadoc | See <<Annotation for Non-Java Data Types,Annotation for Non-Java Data Types>> for the code comment snippet.
+|`@param` | Used underneath the description of a method. `@param` adds the parameter name and its description to the reference material. The description should be listed on the line below. a|
+`* @param collection`
+
+`* the name of the collection to update`
+image:apidoc-param-sample.png[apidoc-param]
+|`@return` | Adds the description of the function's return type to the "Returns" section of the documentation. a|
+`* @return the id that was just inserted`
+
+image:apidoc-returns-sample.png[apidoc-return]
 |===
 
 For visual reference, have a look at the DevKit 3.8.0 generated documentation for one of the Salesforce connector's operations:
@@ -217,7 +233,7 @@ Here is an example from the CMIS connector's `xml.sample` file:
 ----
 
 [NOTE]
-The DevKit ApiDoc can generate more than one example from the `xml.sample` file for the same connector operation. Of course, the example must follow the same "include" tag structure above. As of DevKit 3.8.0, the `@sample.xml` tag is *NOT* supported.
+The DevKit ApiDoc can generate more than one example from the `xml.sample` file for the same connector operation. Of course, the example must follow the same "_INCLUDE" tag structure above. As of DevKit 3.8.0, the `@sample.xml` tag is *NOT* supported.
 
 == Generating Documentation
 
@@ -237,7 +253,9 @@ mvn clean compile -DgenerateApidocs
 ----
 
 
-The generated documentation can be found in the `target/apidocs` directory in your connector folder. Open the file `connectorname-apidoc.html` to show the fully generated documentation in the browser.
+The generated documentation can be found in the `target/apidocs` directory in your connector folder. Open the file `connectorname-apidoc.html` to show the fully generated documentation in the browser. The same Javadoc comments are also consumed by DevKit to provide contextual help for the user within Studio at design time.
+
+image:contextual-help-box.png[contextual help]
 
 As you build out your connector, perform a review of the generated documentation to ensure that the contents are sane and correct. If you find the generated documentation insufficient, you can always include more detail in the Javadoc comments in your code.
 
