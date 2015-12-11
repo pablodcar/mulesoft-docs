@@ -62,13 +62,13 @@ This is the recommended approach if multiple applications require the same licen
 
 == Licensed Connector User Experience
 
-To test the experience using a licensed connector, follow these steps:
+To test the experience of the user based on 1) whether they have properly obtained and stored their license and 2) where they try to deploy their application, follow these steps:
 
 . Download the zipped link:_attachments/licSampleConnector.zip[sample connector project]
 . From the *File* menu, select *Import* to import the .zip file into the workspace.
 . From the *Project* menu, click *Clean* to build the connector.
 . Right-click the connector project in Package Explorer, and click *Install or Update* to install the connector in Studio.
-. *Import* either a link:_attachments/noLicenseSampleApp.zip[sample application with an unlicensed connector] or an link:_attachments/okLicenseSampleApp.zip[application with a licensed connector].
+. *Import* either a link:_attachments/noLicenseSampleApp.zip[sample application with an unlicensed connector] or a link:_attachments/okLicenseSampleApp.zip[sample application with a licensed connector].
 
 [NOTE]
 In *application design* in Studio, running the application without the necessary connector license does not produce any error or exception.
