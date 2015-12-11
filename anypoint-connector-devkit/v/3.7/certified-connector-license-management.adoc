@@ -1,6 +1,6 @@
 = MuleSoft Certified Connector License Management
 :keywords: connector, devkit, license, key, keygen, partner, paid
-
+//todo: link to sample connectors and Mule app
 == Introduction
 
 With *DevKit 3.8*, MuleSoft Certified Connector partners/developers, referred to here also as "partners", can manage their connector’s license natively with DevKit before the connector is packaged for release, ensuring only the partner's paid customers are using the connector.
@@ -13,6 +13,8 @@ Using a MuleSoft-generated key ensures only the MuleSoft partner's paid customer
 
 //todo: insert link to sample connector in this commented out sentence: Inspect this sample connector in Studio with Mule ESB to help you understand the user experience with the certified connector.
 In trying to deploy this sample connector on CloudHub or Mule ESB On-Prem, you see a pop-up message requesting a valid license.
+
+//todo:insert resource files about here
 
 == To Obtain a Key and Keystore for Your Connector
 //todo: please read these steps to ensure they are complete and are all the steps for the partner to do before submitting connector for certification
