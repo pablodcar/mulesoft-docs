@@ -15,18 +15,25 @@ Using a MuleSoft-generated key ensures only the MuleSoft partner's paid customer
 In trying to deploy this sample connector on CloudHub or Mule ESB On-Prem, you see a pop-up message requesting a valid license.
 
 == Before Submitting Your Connector For Certification
-
+//todo: please read these steps to ensure they are complete and are all the steps for the partner to do before submitting connector for certification
 Before submitting the connector to MuleSoft for certification, the prospective certified connector partner should complete these steps:
-//todo: see above: "should" or "must"?
 
 . Include the following information for MuleSoft to use before generating a partner key and keystore.
 .. *Vendor Name*, *Contact Email*, *Contact Message*, *Connector Name*
-. The partner then adjusts the connector project code accordingly by applying the `@RequiresEntitlement` annotation, and entering values for all requested attributes
-//todo: need information about the required attributes (@Target(value={TYPE}), @Retention(value=SOURCE), @Documented) ???
-.. The *provider name* is required to match the name of the `.key` file given by Mule. For example, if MuleSoft generated a vendor key using the name “Splunk.key”, then the provider name has to be “Splunk”.
-//TODO: where does the vendor see this "provider name" bit?
+. The partner then adjusts the connector project code accordingly by applying the `@RequiresEntitlement` annotation, and entering values for all requested attributes, `name`, which should be the name of the connector and the partner name, which should be set for the `provider` attribute.
++
+[source, java, linenums]
+----
+@RequiresEntitlement(name="connector-name", provider="partner-name")
+public class LicensedConnector {
+  ...
+----
+. Request the key from MuleSoft, which will be the public `.key` file that is bundled into the connector, and the `.jks` master keystore for the partner to generate licenses with.
+.. The *provider name* will be the part before the `.key` suffix of the file given by Mule. For example, if MuleSoft generated a vendor key using the name “Splunk-demo-connector.key”, then the provider name has to be “Splunk-demo-connector”.
+//todo: not sure why "provider name" is important or relevant, Mulesoft generates the key, partner does not have to do anything with the provider name, right?
 .. Put the given `.key` file under the `src/main/resources` or `src/main/resources/license` folder in the connector’s project directory
-. The partner uses the key in the DLT to produce a license for the connector customer, which should then be provided to the respective customer.
+. The partner uses the key and the keystore to produce a license file to send to the connector customer.
+//todo: should i put info on creating the license here, or do you send that directly to the customer
 
 == Developing a Mule Application with a Licensed Connector
 
