@@ -44,7 +44,7 @@ You can download and import this link:_attachments/licSampleConnector.zip[sample
 
 == Developing a Mule Application with a Licensed Connector
 
-For the customer to validate their working connector license, they must make their license (`.lic`) file available through either the Mule application or the Mule server, accordingly.
+For the customer to validate their working connector license, they must make their license (`.lic` file) available through either the Mule application or the Mule server, accordingly.
 
 === License File in the Mule Application
 
@@ -68,9 +68,12 @@ To test the experience using a licensed connector, follow these steps:
 . From the *File* menu, select *Import* to import the .zip file into the workspace.
 . From the *Project* menu, click *Clean* to build the connector.
 . Right-click the connector project in Package Explorer, and click *Install or Update* to install the connector in Studio.
-. *Import* a link:_attachments/noLicenseSampleApp.zip[sample application with an unlicensed connector] or an link:_attachments/okLicenseSampleApp.zip[application with a licensed connector]. In an application design setting in Studio, running the application without a connector license does not produce any error or exception.
+. *Import* either a link:_attachments/noLicenseSampleApp.zip[sample application with an unlicensed connector] or an link:_attachments/okLicenseSampleApp.zip[application with a licensed connector].
 
-Trying to deploy this sample Mule application to *Mule ESB On-Prem* without the connector license causes an exception regarding the lack of a valid license, and is logged like this:
+[NOTE]
+In *application design* in Studio, running the application without the necessary connector license does not produce any error or exception.
+
+Trying to deploy this sample Mule application to *Mule ESB On-Prem* without a valid connector license causes an exception, and is logged like this:
 
 ----
 Exception…
