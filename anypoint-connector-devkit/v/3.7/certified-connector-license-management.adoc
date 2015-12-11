@@ -7,24 +7,27 @@ With *DevKit 3.8*, MuleSoft Certified Connector partners/developers, referred to
 
 Partners that have built a MuleSoft Certified Connector can give potential customers the chance to build a Mule application with their connector and test it on the Mule ESB bundled with Anypoint Studio. However, upon deploying the Mule application with the connector, customers are prompted for the partner's generated key ensuring they possess a valid license from the partner.
 
-== Why Use This Licensing Mechanism
+== Why to Use This Licensing Mechanism
 
 Using a MuleSoft-generated key ensures only the MuleSoft partner's paid customers have complete access to the paid version of the connector. Users who would like to test out the connector before purchasing it would be able to experiment with the connector in design in Anypoint Studio and run their application in Studio's embedded Mule runtime.
 
-//todo: insert link to sample connector in this commented out sentence: Inspect this sample connector in Studio with Mule ESB to help you understand the user experience with the certified connector.
-In trying to deploy this sample connector on CloudHub or Mule ESB On-Prem, you see a pop-up message requesting a valid license.
+== Obtaining a Key and Keystore for Your Connector
 
-//todo:insert resource files about here
-
-== To Obtain a Key and Keystore for Your Connector
-//todo: please read these steps to ensure they are complete and are all the steps for the partner to do before submitting connector for certification
-Before submitting the connector to MuleSoft for certification, the prospective certified connector partner should complete these steps:
+Before submitting the developed connector to MuleSoft for certification, the prospective certified connector partner must complete these steps:
 
 . Include the following information for MuleSoft to use before generating a partner key and keystore.
 .. *Vendor Name*, *Contact Email*, *Contact Message*, *Connector Name*
-. Request the key from MuleSoft, which will be the public `.key` file that is bundled into the connector, and the `.jks` master keystore for the partner to generate licenses with.
-.. The *provider* will be the part before the `.key` suffix of the file given by Mule. For example, if MuleSoft generated a vendor key using the name “prov-name.key”, then the provider name has to be “prov-name”.
-. The partner then adjusts the connector project code accordingly by applying the `@RequiresEntitlement` annotation, and entering values for all requested attributes, `name`, which must be the name of the connector and the provider name, which must be set for the `provider` attribute.
+. Request the key and keystore from MuleSoft which are:
+.. The public `.key` file that you store in the connector
+.. The `.jks` master keystore is for you as the partner to generate licenses with.
+
+== Adjusting the Connector Code and Storing the Public Key
+
+After obtaining the key and keystore:
+
+. The partner adjusts the connector project code by applying the `@RequiresEntitlement` annotation, and entering values for all requested attributes.
+.. `name` must be the name of the connector
+.. the `provider` attribute must be the part before the `.key` suffix. For example, if MuleSoft generated a vendor key “prov-name.key”, then the partner puts “prov-name” as the provider.
 +
 [source, java, linenums]
 ----
@@ -32,12 +35,16 @@ Before submitting the connector to MuleSoft for certification, the prospective c
 public class LicensedConnector {
   ...
 ----
-.. Put the given `.key` file under the `src/main/resources` or `src/main/resources/license` folder in the connector’s project directory
++
+. Put the MuleSoft-provided `.key` file under `src/main/resources` or `src/main/resources/license` in the connector’s project directory.
 . The partner uses the key and the keystore to produce a license file to send to the connector customer according to detailed instructions provided to you by MuleSoft.
+
+=== Sample Partner Connector
+You can download and import this link:_attachments/licSampleConnector.zip[sample connector] in Studio to see how the license management mechanism should be configured in the connector code and where the `.lic` license file should live in the project (`src/main/resources`).
 
 == Developing a Mule Application with a Licensed Connector
 
-For the customer to validate their working connector license, the customer must make their license (`.lic`) file available through either the Mule application or the Mule server.
+For the customer to validate their working connector license, they must make their license (`.lic`) file available through either the Mule application or the Mule server, accordingly.
 
 === License File in the Mule Application
 
@@ -52,3 +59,26 @@ Instead of storing the license in the application, it can be placed instead in t
 
 [NOTE]
 This is the recommended approach if multiple applications require the same license.
+
+== Licensed Connector User Experience
+
+To test the experience using a licensed connector, follow these steps:
+
+. Download the zipped link:_attachments/licSampleConnector.zip[sample connector project]
+. From the *File* menu, select *Import* to import the .zip file into the workspace.
+. From the *Project* menu, click *Clean* to build the connector.
+. Right-click the connector project in Package Explorer, and click *Install or Update* to install the connector in Studio.
+. *Import* a link:_attachments/noLicenseSampleApp.zip[sample application with an unlicensed connector] or an link:_attachments/okLicenseSampleApp.zip[application with a licensed connector]. In an application design setting in Studio, running the application without a connector license does not produce any error or exception.
+
+Trying to deploy this sample Mule application to *Mule ESB On-Prem* without the connector license causes an exception regarding the lack of a valid license, and is logged like this:
+
+----
+Exception…
+Caused by: org.mule.devkit.3.8.0.internal.lic.exception.InvalidLicenseException: License with name [license-demo.lic] not found as resource. License was not provided or its name is not the expected
+----
+
+Attempting to deploy the Mule application using the unlicensed connector to *CloudHub* fails with a status indicator:
+image:cloudhub-lic-status.png[cloudhub license status]
+
+== See Also
+* Review the section on link:/anypoint-connector-devkit/v/3.8/packaging-your-connector-for-release[Packaging Your Connector For Release]
