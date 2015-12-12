@@ -13,7 +13,6 @@ DevKit Version 3.8.0 is compatible with:
 |Mule Runtime|3.5.3 or later
 |Anypoint Studio|5.4.0 or later
 |===
-//todo: check version of Studio
 
 == New Features
 

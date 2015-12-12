@@ -1,13 +1,13 @@
 = SOAP Session Management
 :keywords: soap connect, session management, wsdl, web service, soap
 
-To support SOAP-based connector development, DevKit 3.8.0 comes equipped with the ability for the connector developer to define a session token for managing connections, SOAP sessions and service operations requiring a token.
+To support SOAP-based connector development, DevKit 3.8.0 comes equipped with the option for the connector developer to define a session token for managing SOAP service connections, SOAP sessions and service operations requiring a token.
 
 == Introduction
 
-Session management means the ability to create a session token in your connector code within the `@Connect` method, and utilize it as necessary for certain service operations.
+Session management for SOAP Connect offers you as the developer to create a session token from your connector code within the `@Connect` method, and utilize it according to any operations the SOAP service requires.
 
-Use the session token as a means to manage user access to the service through the connector. For more information on session token placement inside the body see link:
+Use the session token as a means to manage user access to the service through the connector. For more information on session token placement inside the body see link:/anypoint-connector-devkit/v/3.7/soap-connect-session-management#enriching -soap-body-with-session-token[SOAP message body enrichment].
 
 Session management allows you, the developer to:
 
@@ -105,7 +105,7 @@ public class Config {
 
 == Enriching SOAP Body With Session Token
 
-With the release of DevKit 3.8.0. the `@WsdlBodyEnricher` can be used to inject the session token into the SOAP body.
+With the release of DevKit 3.8.0 the `@WsdlBodyEnricher` can be used to inject the session token into the SOAP body.
 
 === @WsdlBodyEnricher
 
