@@ -5,7 +5,7 @@ When you need to be able to consume a REST API from within a Mule application, y
 
 [NOTE]
 ====
-Note that if your use case involves connecting to the same REST API many times, or if you are working with an API with complex authentication protocols, you may find that developing your own Anypoint Connector is a more effective, reusable solution. See link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit] for more details about building connectors.
+Note that if your use case involves connecting to the same REST API many times, or if you are working with an API with complex authentication protocols, you may find that developing your own Anypoint Connector is a more effective, reusable solution. See link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit] for more details about building connectors.
 
 Consider that perhaps a connector has already been developed for the API you wish to connect to. If so, look for it in the link:https://www.mulesoft.com/library#%21/[library] and download it into Studio.
 ====
@@ -341,7 +341,7 @@ You can also use a link:/mule-user-guide/v/3.7/configuring-properties[property p
 == Working with Security Requirements
 
 [NOTE]
-Note that if your use case involves working with an API with complex authentication protocols such as OAuth, you can build your own Anypoint Connector to consume the API. See link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit] for more details about building connectors.
+Note that if your use case involves working with an API with complex authentication protocols such as OAuth, you can build your own Anypoint Connector to consume the API. See link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit] for more details about building connectors.
 
 === HTTPS
 
@@ -508,4 +508,4 @@ image:consume-api-dw.png[consume-api-dw]
 
 * Refer to the reference documentation for the HTTP connector.
 
-* If the HTTP connector doesn't meet your needs, consider building a connector with the link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit].
+* If the HTTP connector doesn't meet your needs, consider building a connector with the link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit].

@@ -1,4 +1,4 @@
-= Creating a Connector Using a Java SDK
+= Java SDK-Based Connector Example
 :keywords: devkit, java, sdk, entity classes, data model, connector
 
 This example discusses the implementation of an Anypoint Connector for an API exposed through a Java SDK. Follow the process in this document to build a Java SDK-based connector for any service.
@@ -7,7 +7,7 @@ Java client libraries are in many cases the best option for integrating with a r
 
 == Prerequisites
 
-This document assumes familiarity with the Anypoint connector architecture as described in link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit]. Furthermore, it assumes that you have created a new connector project as described in link:/anypoint-connector-devkit/v/3.7/creating-an-anypoint-connector-project[Creating an Anypoint Connector Project].
+This document assumes familiarity with the Anypoint connector architecture as described in link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit]. Furthermore, it assumes that you have created a new connector project as described in link:/anypoint-connector-devkit/v/3.8/creating-an-anypoint-connector-project[Creating an Anypoint Connector Project].
 
 == SDK-Based Connector Architecture
 
@@ -34,7 +34,7 @@ The Twitter connector illustrates many aspects of DevKit functionality. The focu
 For authentication, the Twitter connector implements an interesting hybrid approach, defined in link:https://github.com/mulesoft/twitter-connector/blob/develop/src/main/java/org/mule/modules/twitter/TwitterConnector.java[`TwitterConnector.java`]:
 
 * The Twitter4J client library implements its own OAuth support, which the Mule connector leverages
-* Because the connector does not use DevKit's OAuth support, it is possible to use DevKit's link:/anypoint-connector-devkit/v/3.7/authentication[connection strategies].
+* Because the connector does not use DevKit's OAuth support, it is possible to use DevKit's link:/anypoint-connector-devkit/v/3.8/authentication[connection strategies].
 ====
 
 == Adding an SDK to a Connector Project
@@ -64,7 +64,7 @@ In general, it is recommended that you define at least two exceptions for your c
 
 Authentication is implemented both in the `@Connector` class and in the SDK. Details of implementing authentication in the `@Connector` class  depends upon the chosen authentication scheme and on the SDK authentication support.
 
-You may add `@Configurable` properties on the `@Connector` class as described in link:/anypoint-connector-devkit/v/3.7/defining-connector-attributes[Defining Connector Attributes] and take advantage of the connection strategies as described in link:/anypoint-connector-devkit/v/3.7/connector-connection-strategies[Connector Connection Strategies].
+You may add `@Configurable` properties on the `@Connector` class as described in link:/anypoint-connector-devkit/v/3.8/defining-connector-attributes[Defining Connector Attributes] and take advantage of the connection strategies as described in link:/anypoint-connector-devkit/v/3.8/connector-connection-strategies[Connector Connection Strategies].
 
 For instance, you should bind the connection lifecycle of your connector along with your SDK's connection mechanisms.
 
@@ -128,7 +128,7 @@ public void connect(@ConnectionKey String accessKey, String accessSecret) throws
 
 On the other hand, we have a series of `@Processor` methods that implement OAuth-related functionality, like getting and managing an access token by calling functions exposed by class `twitter4j.Twitter`:
 
-[source,java, linenums]
+[source,java,linenums]
 ----
 /**
  * Set the OAuth verifier after it has been retrieved via requestAuthorization.
@@ -313,20 +313,20 @@ The JavaDoc for each operation includes a pointer to the sample code file:
 
 `../../../doc/twitter-connector.xml.sample`
 
-As well as the usual `@param` and `@return` comments. DevKit enforces the inclusion of these code samples, and checks the samples you provide against the parameters defined for those operations. See Creating DevKit Connector Documentation for details on creating the required documentation for each of your operations.
+As well as the usual `@param` and `@return` comments, DevKit enforces the inclusion of these code samples, and checks the samples you provide against the parameters defined for those operations. See link:/anypoint-connector-devkit/v/3.8/connector-reference-documentation[Connector Reference Documentation] for details on creating the required documentation for each of your operations.
 
 === Creating Unit Tests for Operations
 
 As you define each operation, you should create the unit tests that utilize it. The generated project skeleton created by the DevKit Maven archetype includes a unit test suite directory under `./src/test`. DevKit defines a unit test framework based on JUnit. 
 
-For details on creating unit tests, see link:/anypoint-connector-devkit/v/3.7/developing-devkit-connector-tests[Developing DevKit Connector Tests].
+For details on creating unit tests, see link:/anypoint-connector-devkit/v/3.8/developing-devkit-connector-tests[Developing DevKit Connector Tests].
 
 == Next Steps
 
-If you are merely reviewing the different connector implementation types, you can return to link:/anypoint-connector-devkit/v/3.7/connector-attributes-and-operations[Connector Attributes and Operations] and link:/anypoint-connector-devkit/v/3.7/connector-attributes-and-operations#static-versus-dynamic-data-models[Data Models] to review connector implementations that communicate directly with SOAP and RESTful Web services without using a pre-built SDK.
+If you are merely reviewing the different connector implementation types, you can return to link:/anypoint-connector-devkit/v/3.8/connector-attributes-and-operations[Connector Attributes and Operations] and link:/anypoint-connector-devkit/v/3.8/connector-attributes-and-operations#static-versus-dynamic-data-models[Data Models] to review connector implementations that communicate directly with SOAP and RESTful Web services without using a pre-built SDK.
 
 Once you have implemented your connector with its operations, as well as created some documentation and a test suite, you can:
 
-* Return to the link:/anypoint-connector-devkit/v/3.7/#development-steps[DevKit Development Steps] to continue the development process described there
-* Build out the test suite to improve coverage, based on information in link:/anypoint-connector-devkit/v/3.7/developing-devkit-connector-tests[Developing DevKit Connector Tests]
-* Build out the documentation examples to show more samples, based on information in link:/anypoint-connector-devkit/v/3.7/connector-reference-documentation[Connector Reference Documentation]
+* Return to the link:/anypoint-connector-devkit/v/3.8/#development-steps[DevKit Development Steps] to continue the development process described there
+* Build out the test suite to improve coverage, based on information in link:/anypoint-connector-devkit/v/3.8/developing-devkit-connector-tests[Developing DevKit Connector Tests]
+* Build out the documentation examples to show more samples, based on information in link:/anypoint-connector-devkit/v/3.8/connector-reference-documentation[Connector Reference Documentation]

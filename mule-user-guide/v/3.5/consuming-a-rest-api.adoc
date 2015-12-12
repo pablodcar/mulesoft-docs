@@ -4,7 +4,7 @@ When you need to be able to consume a REST API from within a Mule application, y
 
 [NOTE]
 
-Note that if your use case involves connecting to the same REST API many times, or if you are working with an API with complex authentication protocols, you may find that developing your own Anypoint Connector is a more effective, reusable solution. See link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit] for more details about building connectors.
+Note that if your use case involves connecting to the same REST API many times, or if you are working with an API with complex authentication protocols, you may find that developing your own Anypoint Connector is a more effective, reusable solution. See link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit] for more details about building connectors.
 
 == Basic Anatomy
 
@@ -282,7 +282,7 @@ You can also use a https://developer.mulesoft.com/docs/display/35X/Configuring+P
 
 [NOTE]
 
-Note that if your use case involves working with an API with complex authentication protocols such as OAuth, you can build your own Anypoint Connector to consume the API. See link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit] for more details about building connectors.
+Note that if your use case involves working with an API with complex authentication protocols such as OAuth, you can build your own Anypoint Connector to consume the API. See link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit] for more details about building connectors.
 
 
 
@@ -466,4 +466,4 @@ image:consume-rest-datamapper.png[consume-rest-datamapper]
 
 * See some link:/mule-user-guide/v/3.6/rest-api-examples[example applications] that consume REST APIs.
 * Refer to the reference documentation for the HTTP connector.
-* If the HTTP connector doesn't meet your needs, consider building a connector with the link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit].
+* If the HTTP connector doesn't meet your needs, consider building a connector with the link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit].

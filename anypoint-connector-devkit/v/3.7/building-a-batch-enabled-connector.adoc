@@ -19,7 +19,7 @@ This document explains how you can leverage your own connector to take advantage
 
 == Prerequisites
 
-This document assumes you are familiar with link:/mule-user-guide/v/3.7/batch-processing[Batch Processing], that you have link:/anypoint-connector-devkit/v/3.7/creating-an-anypoint-connector-project[created a connector project], and have link:/anypoint-connector-devkit/v/3.7/defining-attributes-operations-and-data-model[defined the operations] to use.
+This document assumes you are familiar with link:/mule-user-guide/v/3.7/batch-processing[Batch Processing], that you have link:/anypoint-connector-devkit/v/3.8/creating-an-anypoint-connector-project[created a connector project], and have link:/anypoint-connector-devkit/v/3.8/defining-attributes-operations-and-data-model[defined the operations] to use.
 
 == How It Works
 
@@ -189,5 +189,5 @@ There are some important things to notice about the above transformer:
 
 == See Also
 
-* *NEXT*: Learn how to add link:/anypoint-connector-devkit/v/3.7/developing-devkit-connector-tests[tests] to your connector.
-* Generate the link:/anypoint-connector-devkit/v/3.7/connector-reference-documentation[Reference Documentation].
+* *NEXT*: Learn how to add link:/anypoint-connector-devkit/v/3.8/developing-devkit-connector-tests[tests] to your connector.
+* Generate the link:/anypoint-connector-devkit/v/3.8/connector-reference-documentation[Reference Documentation].

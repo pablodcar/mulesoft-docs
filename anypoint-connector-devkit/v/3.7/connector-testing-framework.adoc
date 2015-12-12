@@ -1,6 +1,4 @@
 = Connector Testing Framework
-:keywords: devkit, test, framework
+:keywords: devkit, test, framework, ctf, functional testing,
 
-This page lists Mule 3.7 changes to the DevKit connector testing framework.
-
-See link:https://mulesoft.github.io/connector-testing-framework/[Connector Testing Framework].
+For background information on functional testing and the implementation of the connector testing framework (CTF), see: link:http://mulesoft.github.io/connector-certification-docs/advanced/index.html#_functional_tests[Functional Testing].

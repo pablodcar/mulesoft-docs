@@ -67,12 +67,12 @@ You may want to consider building a connector for the API instead of configuring
 * You will be consuming this API very frequently, and you don't want to have to configure your connection via HTTP each time that you want to connect
 * You need to connect to a REST API secured by any authorization standard that is more complex than HTTPS or basic authentication
 
-If either or both of these describes your use case, visit the link:/anypoint-connector-devkit/v/3.7[DevKit] documentation to learn more about the process of building a connector.
+If either or both of these describes your use case, visit the link:/anypoint-connector-devkit/v/3.8[DevKit] documentation to learn more about the process of building a connector.
 
 ==== Get Started:
 
 * link:/mule-user-guide/v/3.7/consuming-a-rest-api[Consuming REST APIs] with HTTP
-* Build a connector with link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit]
+* Build a connector with link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit]
 
 [TIP]
 Consider that perhaps a connector has already been developed for the API you wish to connect to. If so, look for it in the link:https://www.mulesoft.com/library#%21/[library] and download it into Studio.

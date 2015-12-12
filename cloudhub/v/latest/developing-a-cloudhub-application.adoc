@@ -41,7 +41,7 @@ When developing an application that needs to access resources from inside your f
 
 == Accessing Third-Party APIs and Services
 
-CloudHub includes connectors for many third party applications, such as Salesforce, NetSuite, Twitter, and others. Anypoint Studio includes a few of the most common ones out of the box for developing with CloudHub, and the link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit] documentation provides more detail on how to find and deploy these connectors with your application.
+CloudHub includes connectors for many third party applications, such as Salesforce, NetSuite, Twitter, and others. Anypoint Studio includes a few of the most common ones out of the box for developing with CloudHub, and the link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit] documentation provides more detail on how to find and deploy these connectors with your application.
 
 == Adding a UI for Your Application
 

@@ -5,11 +5,11 @@ The Connection Management framework provides multi-tenancy capabilities for a co
 
 This document describes the Connection Management framework, the Java annotations through which it is exposed, and how to implement Basic Authentication support in your connector to authenticate with your service. Examples in this discussion show the use of Basic Authentication with basic username and password authentication (most common), but they can easily be generalized to other non-OAuth protocols such as SAML, Kerberos, LDAP, NTLM, or to create a custom connection.
 
-For OAuth-based authentication DevKit provides functionality using OAuth-related annotations. See link:/anypoint-connector-devkit/v/3.7/oauth-v1[OAuth V1] and link:/anypoint-connector-devkit/v/3.7/oauth-v2[OAuth V2] for details.
+For OAuth-based authentication DevKit provides functionality using OAuth-related annotations. See link:/anypoint-connector-devkit/v/3.8/oauth-v1[OAuth V1] and link:/anypoint-connector-devkit/v/3.8/oauth-v2[OAuth V2] for details.
 
 == Prerequisites
 
-This document assumes you are familiar with the link:/anypoint-connector-devkit/v/3.7[Anypoint Connector DevKit], have already link:/anypoint-connector-devkit/v/3.7/creating-an-anypoint-connector-project[created a connector project], and are ready to implement authentication on your connector. Further, it assumes you are familiar with the various link:/anypoint-connector-devkit/v/3.7/authentication-methods[authentication methods], have compared the different link:/anypoint-connector-devkit/v/3.7/authentication[authentication support options in Devkit], and chosen Basic Authentication to connect to your API.
+This document assumes you are familiar with the link:/anypoint-connector-devkit/v/3.8[Anypoint Connector DevKit], have already link:/anypoint-connector-devkit/v/3.8/creating-an-anypoint-connector-project[created a connector project], and are ready to implement authentication on your connector. Further, it assumes you are familiar with the various link:/anypoint-connector-devkit/v/3.8/authentication-methods[authentication methods], have compared the different link:/anypoint-connector-devkit/v/3.8/authentication[authentication support options in Devkit], and chosen Basic Authentication to connect to your API.
 
 == About Connection Management
 
@@ -23,7 +23,7 @@ The Connection Management framework provides the following benefits with minimal
 
 You can use the Connection Management framework in conjunction with most authentication protocols, such as username and password authentication (most common), SAML, Kerberos, LDAP, and NTLM.
 
-For OAuth-based authentication DevKit provides functionality using OAuth-related annotations. See link:/anypoint-connector-devkit/v/3.7/oauth-v1[OAuth V1]  and link:/anypoint-connector-devkit/v/3.7/oauth-v2[OAuth V2] for details.
+For OAuth-based authentication DevKit provides functionality using OAuth-related annotations. See link:/anypoint-connector-devkit/v/3.8/oauth-v1[OAuth V1]  and link:/anypoint-connector-devkit/v/3.8/oauth-v2[OAuth V2] for details.
 
 == Connection Management Annotation
 
@@ -53,7 +53,7 @@ To use Connection Management in a connector, define and annotate the following m
 * `@ValidateConnection` method - Returns true if a connection is still valid, false otherwise
 * `@ConnectionIdentifier` method - Returns a prefix used in generating unique identifiers for connector instances in the connection pool
 
-The specific implementation of these methods depends on the target. For more information on annotations, see the link:/anypoint-connector-devkit/v/3.7/annotation-reference[Annotation Reference].
+The specific implementation of these methods depends on the target. For more information on annotations, see the link:http://mulesoft.github.io/mule-devkit/[Anypoint DevKit API Reference].
 
 [source,java, linenums]
 ----
