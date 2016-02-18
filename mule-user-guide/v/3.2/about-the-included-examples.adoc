@@ -1,5 +1,5 @@
 = About the Included Examples
-:keywords: examples, aspx, event, web service
+:keywords: examples, aspx, event, web service, wmq, jms
 
 
 [cols=",",options="header",]
