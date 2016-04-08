@@ -108,18 +108,18 @@ urn:oasis:names:tc:SAML:2.0:unspecified=uid
 +
 . Export the certificate used in your identity provider, which you  provide to MuleSoft through the OpenAM configuration form.
 
-=== Configuring Anypoint Platform for PingFederate
+=== Configuring Anypoint Platform for Client Management
 
-Provide MuleSoft with the Information Required to Configure Your Anypoint Platform Organization for PingFederate.
+Provide MuleSoft with the Information Required to Configure Your Anypoint Platform Organization for PingFederate or OpenAM.
 
 [NOTE]
 ====
-If all you want to use is link:https://documentation.pingidentity.com/display/PF66/Account+Management[user management], you can register your identity manager manually as explained in the sections above. If you wish to implement link:https://documentation.pingidentity.com/display/PF610/Client+Management[client management] then you must provide MuleSoft with more information as explained in this section.
+If all you want to use is user management, you can register your identity manager manually as explained in the sections above. If you wish to implement client management then you must provide MuleSoft with more information as explained in this section.
 
 If you are using Anypoint Platform on premises, you do not need to provide this information to MuleSoft.
 ====
 
-If you want to use 'client management' and if you're not using Anypoint Platform on premises, you can't set this up manually, but you can request that your account be configured in that way. Work with your MuleSoft account representative to ensure that we are aware of your needs for configuring your organization with PingFederate. Complete link:https://docs.google.com/a/mulesoft.com/forms/d/16ZQjXcLmuXO8140svkjUxywzkZjv01GTgbf_3kfEebQ/viewform[the following form]. After you complete this form, MuleSoft gets back to you within 48 hours with either the completion of the configuration or follow-up questions to complete the configuration.
+If you want to use 'client management' and if you're not using Anypoint Platform on premises, you can't set this up manually, but you can request that your account be configured in that way. Work with your MuleSoft account representative to ensure that we are aware of your needs for configuring your organization with PingFederate or OpenAM. Complete this form link:https://docs.google.com/a/mulesoft.com/forms/d/16ZQjXcLmuXO8140svkjUxywzkZjv01GTgbf_3kfEebQ/viewform[for PingFederate] or this form link:https://docs.google.com/forms/d/1ZvNUWU3u0lzLk6H5R3lKcEN2Dcyg1zekc1HYtYIcZP0/viewform[for OpenAM]. After you complete this form, MuleSoft gets back to you within 48 hours with either the completion of the configuration or follow-up questions to complete the configuration.
 
 [NOTE]
 Having a single audience (an Anypoint Platform organization) served by multiple issuers (multiple SAML provider instances) is currently not supported.
